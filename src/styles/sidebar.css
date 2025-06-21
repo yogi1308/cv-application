@@ -6,21 +6,26 @@
     border-left: none;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 form > div:not(:first-child) {
     border-top: 1px solid var(--secondary-color);
-    padding-top: 0.75rem;
+    padding-top: 1.5rem;
 }
 
 form > div {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .section-heading > svg {
@@ -44,8 +49,12 @@ h2, p, input, #editor {
     font-size: 1.5rem;
 }
 
-h2, input, #editor {
-    font-size: 1.2rem;
+h2 {
+    font-size: 1.25rem;
+}
+
+input, #editor {
+    font-size: 1.05rem;
 }
 
 input, #editor {
@@ -55,12 +64,14 @@ input, #editor {
   width: 100%;
   color: var(--primary-text-color);
   position: relative;
+  padding: 0.2rem 0.5rem;
 }
 
 #editor {
     min-height: 5rem;
     max-height: 5rem;
     overflow: auto;
+    color: grey;
 }
 
 form > div {
@@ -69,14 +80,15 @@ form > div {
     gap: 0.5rem;
 }
 
-.graduation-and-gpa, .major-and-degree {
+.graduation-and-gpa, .major-and-degree, .skill-name, .url-links, .mail-and-phone, .from-to {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+    align-items: end;
 }
 
-.major-and-degree > .degree, .graduation-and-gpa > .gpa { flex: 1; }
-.major-and-degree > .major, .graduation-and-gpa > .graduation { flex: 2; }
+.major-and-degree > .degree, .graduation-and-gpa > .gpa , .skill-name > div:nth-child(1) { flex: 1; }
+.major-and-degree > .major, .graduation-and-gpa > .graduation, .skill-name > div:nth-child(2) { flex: 2; }
 
 .info-on-more-info {
     position: absolute;
@@ -89,17 +101,17 @@ form > div {
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
     padding: 0.25rem 0.5rem;
-    font-size: 0.6rem;
+    font-size: 1rem;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease-in;
 }
 
 /* Show tooltip when the trigger span is hovered */
-#root > div > form > div.education-name > div.more-info > h2:hover .info-on-more-info{
+.more-info > h2:hover .info-on-more-info{
     opacity: 1;
     visibility: visible;
 }
 
-#root > div > form > div.education-name > div.more-info > h2 {
+.more-info > h2 {
     cursor: pointer;
     max-width: fit-content;
 }

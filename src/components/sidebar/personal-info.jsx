@@ -15,21 +15,25 @@ function PersonalInfo() {
             <h2>Address</h2>
             <input type="text" name="address" id="address" />
         </div>
-        <div className="mail">
-            <h2>Email</h2>
-            <input type="email" name="email" id="email" />
+        <div className='mail-and-phone'>
+            <div className="mail">
+                <h2>Email</h2>
+                <input type="email" name="email" id="email" />
+            </div>
+            <div className="phone">
+                <h2>Phone No.</h2>
+                <input type="number" name="phone" id="phone" />
+            </div>
         </div>
-        <div className="phone">
-            <h2>Phone No.</h2>
-            <input type="number" name="phone" id="phone" />
-        </div>
-        <div className="github">
-            <h2>GitHub Profile URL</h2>
-            <input type="url" name="github" id="github" />
-        </div>
-        <div className="linkedIn">
-            <h2>LinkedIn</h2>
-            <input type="url" name="linkedIn" id="linkedIn" />
+        <div className="url-links">
+            <div className="github">
+                <h2>GitHub Profile URL</h2>
+                <input type="url" name="github" id="github" placeholder='www.github.com/CS'/>
+            </div>
+            <div className="linkedIn">
+                <h2>LinkedIn</h2>
+                <input type="url" name="linkedIn" id="linkedIn" placeholder='linkedin.com/in/CS' />
+            </div>
         </div>
         <div className="portfolio">
             <h2>Personal Portfolio Website</h2>

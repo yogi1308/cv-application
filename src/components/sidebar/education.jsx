@@ -4,7 +4,7 @@ function EducationInfo() {
     return (
         <div className='education-name'>
             <div className="section-heading">
-                <h1>Education</h1>
+                <h1>Educational Background</h1>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
             </div>
             <div className="school-name">
@@ -40,11 +40,14 @@ function EducationInfo() {
                 <h2>
                     <p className="info-on-more-info">
                         Provide highlights about your education, such as your degree, GPA, relevant coursework, and your activities or achievements there.
-                        <br /> You can Bold, Italicize, Underline or add bullet points as you see fit
+                        <br /> <br /> You can Bold, Italicize, Underline or add bullet points as you see fit
                     </p>
-                    <span>More Info</span> <span title>⁕</span>
+                    <span>Additional Information</span> <span title>⨁</span>
                 </h2>
-                <div id="editor" contenteditable="true">
+                <div id="editor" contenteditable="true" onFocus={(e) => {if (e.target.innerHTML === "<strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning<br> Dean's List Spring 2024<br> Summa Cum Laude") {e.target.textContent = ""} ; e.target.style.color = 'white' }} onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "<strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning<br> Dean's List Spring 2024<br> Summa Cum Laude"; e.target.style.color = 'grey' }}}>
+                    <strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning
+                    <br /> Dean's List Spring 2024
+                    <br /> Summa Cum Laude
                 </div>
             </div>
         </div>
