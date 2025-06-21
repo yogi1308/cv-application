@@ -1,13 +1,20 @@
 .sidebar {
-    display: flex;
-    flex-direction: column;
     max-width: 35vw;
-    padding: 1rem 0.5rem 1rem 0.5rem;
+    padding: 0.5rem 1rem;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
     border-left: none;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+}
+
+form > div:not(:first-child) {
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 0.75rem;
+}
+
+form > div {
+    margin-bottom: 1rem;
 }
 
 .section-heading {
@@ -29,26 +36,31 @@ h1 {
     font-weight: 400;
 }
 
-h2, p, input {
+h2, p, input, #editor {
     font-weight: 200;
 }
 
 .section-heading > h1 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
-.sidebar > form > div > div > h2, input {
-    font-size: 0.75rem;
+h2, input, #editor {
+    font-size: 1.2rem;
 }
 
-input {
+input, #editor {
   background: var(--primary-color);
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
   width: 100%;
   color: var(--primary-text-color);
   position: relative;
-  transform: translateY(-4px);
+}
+
+#editor {
+    min-height: 5rem;
+    max-height: 5rem;
+    overflow: auto;
 }
 
 form > div {
@@ -57,3 +69,37 @@ form > div {
     gap: 0.5rem;
 }
 
+.graduation-and-gpa, .major-and-degree {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.major-and-degree > .degree, .graduation-and-gpa > .gpa { flex: 1; }
+.major-and-degree > .major, .graduation-and-gpa > .graduation { flex: 2; }
+
+.info-on-more-info {
+    position: absolute;
+    z-index: 2;
+    transform: translate(20px, -100%);
+    width: 25vw;
+    opacity: 0;
+    visibility: hidden;
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6rem;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease-in;
+}
+
+/* Show tooltip when the trigger span is hovered */
+#root > div > form > div.education-name > div.more-info > h2:hover .info-on-more-info{
+    opacity: 1;
+    visibility: visible;
+}
+
+#root > div > form > div.education-name > div.more-info > h2 {
+    cursor: pointer;
+    max-width: fit-content;
+}

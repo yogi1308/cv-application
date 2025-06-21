@@ -67,9 +67,19 @@ html {
     --primary-text-color: white;
     --secondary-text-color: #e2e8f0;
   }
-  
-  html {
-    background: var(--background-color);
-    color: var(--primary-text-color);
-  }
 }
+
+html {
+  background: var(--background-color);
+  color: var(--primary-text-color);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-text-color);
+  border-radius: 5px;
+}
+
