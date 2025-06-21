@@ -17,8 +17,12 @@ form > div:not(:first-child) {
     padding-top: 1.5rem;
 }
 
+#root > div > form > div:nth-child(6) {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
 form > div {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .section-heading {
@@ -114,4 +118,17 @@ form > div {
 .more-info > h2 {
     cursor: pointer;
     max-width: fit-content;
+}
+
+.close {
+  transform: scaleY(0);
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s, transform 0.3s;
+}
+
+#root > div > form > div > div:nth-child(2) {
+    transform-origin: top;
+    overflow: hidden;
+    transition: height 0.3s, transform 0.3s;
 }
