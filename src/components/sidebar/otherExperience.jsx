@@ -1,25 +1,23 @@
-import '../../styles/sidebar.css'
-
 function OtherExperience() {
     return (
         <div className="other-experience">
             <div className='club'>
                 <h2>Program/Club Name</h2>
-                <input type="text" name="club" id="club" />
+                <input type="text" name="club" id="club" autoComplete="off"/>
             </div>
             <div className="club-location">
                 <h2>Program/Club Location</h2>
-                <input type="text" name="club-location" id="club-location" />
+                <input type="text" name="club-location" id="club-location" autoComplete="off" />
             </div>
             <div className="role">
                 <h2>Role</h2>
-                <input type="text" name='role' id='role' />
+                <input type="text" name='role' id='role' autoComplete="off"/>
             </div>
             <div className="Time-period">
                 <h2>Time Period</h2>
                 <div className="from-to">
-                    <input type="text" name="club-time-from" id="club-time-from" placeholder='From'/>
-                    <input type="text" name="club-time-to" id="club-time-to" placeholder='To'/>
+                    <input type="text" name="club-time-from" id="club-time-from" placeholder='From' autoComplete="off"/>
+                    <input type="text" name="club-time-to" id="club-time-to" placeholder='To' autoComplete="off"/>
                 </div>
             </div>
             <div className="more-info">

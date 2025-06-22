@@ -1,0 +1,50 @@
+.resume-wrapper {
+  position: relative;
+  top: 0rem;
+  min-height: 120vh;
+  left: calc(35vw);
+  right: 0rem;
+  overflow: auto;
+  overflow-x: visible;
+  margin-bottom: 1rem;
+  z-index: -1;
+  font-size: 12px;
+}
+
+.resume {
+    aspect-ratio: 1/1.1414;
+  min-width: 700px;
+  max-width: 100px;
+  border: 1px solid var(--secondary-color);
+  margin: 0px 1rem 1rem 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resume-personal-info-name {
+    text-align: center;
+    border-bottom: 1px solid var(--primary-text-color);
+    width: 100%;
+    font-size: 22px;
+}
+
+.resume-other-personal-info {
+    text-align: center;
+}
+
+.resume-header {
+    border-bottom: 1px solid var(--primary-text-color);
+}
+
+.resume-course-name, .resume-school-name, .resume-company, .resume-project, .resume-other-experience {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-experience-info, .resume-project-info, .resume-other-experience-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

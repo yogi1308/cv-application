@@ -1,19 +1,17 @@
-import '../../styles/sidebar.css'
-
 function ProjectsInfo() {
     return (
         <div className="project-experience">
             <div className="project">
                 <h2>Project Name</h2>
-                <input type="text" name='project' id='project' />
+                <input type="text" name='project' id='project' autoComplete="off" />
             </div>
             <div className="project-type">
                 <h2>Project Type</h2>
-                <input type="text" name='project-type' id='project-type' placeholder='Eg. Class Project'/>
+                <input type="text" name='project-type' id='project-type' placeholder='Eg. Class Project' autoComplete="off" />
             </div>
             <div className="project-time">
                 <h2>Time</h2>
-                <input type="text" name="project-time" id="project-time" placeholder='Eg. Spring 2024'/>
+                <input type="text" name="project-time" id="project-time" placeholder='Eg. Spring 2024' autoComplete="off" />
             </div>
             <div className="more-info">
                 <h2>

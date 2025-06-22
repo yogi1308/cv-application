@@ -1,25 +1,23 @@
-import '../../styles/sidebar.css'
-
 function ExperienceInfo() {
     return (
         <div className="experience">
             <div className='company-name'>
                 <h2>Company Name</h2>
-                <input type="text" name="company" id="company" />
+                <input type="text" name="company" id="company" autoComplete="off" />
             </div>
             <div className="company-location">
                 <h2>Company Location</h2>
-                <input type="text" name="company-location" id="company-location" />
+                <input type="text" name="company-location" id="company-location" autoComplete="off"/>
             </div>
             <div className="position">
                 <h2>Position Title</h2>
-                <input type="text" name='position-title' id='position-title' />
+                <input type="text" name='position-title' id='position-title' autoComplete="off" />
             </div>
             <div className="Time-period">
                 <h2>Time Period</h2>
                 <div className="from-to">
-                    <input type="text" name="time-from" id="time-from" placeholder='From'/>
-                    <input type="text" name="time-to" id="time-to" placeholder='To'/>
+                    <input type="text" name="time-from" id="time-from" placeholder='From' autoComplete="off"/>
+                    <input type="text" name="time-to" id="time-to" placeholder='To' autoComplete="off"/>
                 </div>
             </div>
             <div className="more-info">

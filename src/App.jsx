@@ -1,9 +1,11 @@
 import Sidebar from './components/sidebar.jsx'
+import Resume from './components/resume.jsx'
 
 function App() {
   return (
     <>
       <Sidebar />
+      <Resume />
     </>
   )
 }
