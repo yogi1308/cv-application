@@ -54,8 +54,9 @@ h1, h2, h3, h4, h5, h6 {
 html {
   font-family: 'Outfit', Arial, Helvetica, sans-serif;
   --background-color: white;
-    --primary-color: rgb(15, 23, 42);
-    --primary-text-color: white;
+    --primary-color: white;
+    --secondary-color: rgb(170, 173, 176);
+    --primary-text-color: black;
     --secondary-text-color: rgb(71, 85, 105);
 }
 
@@ -67,11 +68,20 @@ html {
     --primary-text-color: white;
     --secondary-text-color: #e2e8f0;
   }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
+  /* optional: reduce its opacity if it’s too stark */
+  cursor: pointer;
+}
 }
 
 html {
   background: var(--background-color);
   color: var(--primary-text-color);
+}
+
+svg {
+  fill: var(--secondary-color);
 }
 
 ::-webkit-scrollbar {
@@ -85,8 +95,6 @@ html {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) brightness(2);
-  /* optional: reduce its opacity if it’s too stark */
   cursor: pointer;
 }
 

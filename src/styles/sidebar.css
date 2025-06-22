@@ -2,22 +2,18 @@
     max-width: 35vw;
     padding: 0.5rem 1rem;
     border: 1px solid var(--secondary-color);
-    border-top-right-radius: 5px;
     border-left: none;
     position: fixed;
     height: 100vh;
     overflow: auto;
     display: flex;
     background-color: var(--background-color);
+    margin-top: 0.5px;
 }
 
 form > div:not(:first-child) {
     border-top: 1px solid var(--secondary-color);
     padding-top: 1.5rem;
-}
-
-#root > div > form > div:nth-child(6) {
-    border-bottom: 1px solid var(--secondary-color);
 }
 
 form > div {
@@ -141,7 +137,7 @@ form > div {
 
 input:focus, #editor:focus {
     outline: none;
-    border: 1px solid white;
+    border: 1px solid var(--primary-text-color);
 }
 
 .dropdown-svg {
@@ -155,4 +151,8 @@ input:focus, #editor:focus {
 
 #root > div.sidebar > form > div:nth-child(7) {
     padding-bottom: 2rem;
+}
+
+svg {
+    fill: var(--secondary-color);
 }
