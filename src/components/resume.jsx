@@ -8,12 +8,12 @@ import ResumeProject from './resume/resumeProject'
 import ResumeOtherExperience from './resume/resumeOtherExperience'
 import ResumeActivities from './resume/resumeActivities'
 
-function Resume() {
+function Resume({ name, otherPersonalDetails, summary }) {
     return (
         <div className="resume-wrapper">
             <div className="resume">
-                <ResumePersonalInfo />
-                <ResumeSummary />
+                <ResumePersonalInfo name={name} otherPersonalDetails={otherPersonalDetails} />
+                <ResumeSummary summary={summary} />
                 <ResumeEducation />
                 <ResumeSkills />
                 <ResumeExperience />

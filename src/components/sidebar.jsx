@@ -7,7 +7,7 @@ import ProjectsInfo from './sidebar/projects'
 import OtherExperience from './sidebar/otherExperience'
 import Summary from './sidebar/summary'
 
-function Sidebar() {
+function Sidebar({ setName, setOtherPersonalDetails, setSummary}) {
   return (
       <div className="sidebar">
         <form action="" autoComplete="on">
@@ -16,7 +16,14 @@ function Sidebar() {
               <h1>Personal Information</h1>
               <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.personal-info').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-            <PersonalInfo />
+            <PersonalInfo setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} />
+          </div>
+          <div className='section-container'>
+            <div className="section-heading">
+              <h1>Summary</h1>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.summary').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+            </div>
+            <Summary setSummary={setSummary} />
           </div>
           <div className='section-container'>
             <div className="section-heading">
@@ -52,13 +59,6 @@ function Sidebar() {
               <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
             <OtherExperience />
-          </div>
-          <div className='section-container'>
-            <div className="section-heading">
-              <h1>Summary</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.summary').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
-            </div>
-            <Summary />
           </div>
         </form>
       </div>
