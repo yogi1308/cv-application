@@ -35,6 +35,10 @@ function ExperienceInfo() {
                     <br />●	Improved server-gadget communication to provide a ready-to-install product for the customer, improving installation time by 25%
                 </div>
             </div>
+            <div className="add-or-delete">
+                <div className="add-icon" style={{ fontSize: '2rem' }} title="Add" >+</div>
+                <div className="delete-icon" style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
+            </div>
         </div>
     )
 }

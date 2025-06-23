@@ -156,3 +156,35 @@ input:focus, #editor:focus {
 svg {
     fill: var(--secondary-color);
 }
+
+.add-or-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.delete-icon {
+    color: rgb(252, 121, 121);
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.delete-icon:hover {color: rgb(255, 0, 0);}
+
+.add-icon {
+    color: rgb(0, 191, 255);
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    color: rgb(0, 102, 255);
+}
+
+.education-name, .education-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -1,6 +1,6 @@
 function EducationInfo() {
     return (
-        <div className='education-name'>
+        <>
             <div className="school-name">
                 <h2>School Name</h2>
                 <input type="text" name="school" id="school" autoComplete="off" />
@@ -44,7 +44,7 @@ function EducationInfo() {
                     <br /> Summa Cum Laude
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

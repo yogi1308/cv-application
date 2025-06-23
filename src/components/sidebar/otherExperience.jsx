@@ -32,6 +32,10 @@ function OtherExperience() {
                     ●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics
                 </div>
             </div>
+            <div className="add-or-delete">
+                <div className="add-icon" style={{ fontSize: '2rem' }} title="Add" >+</div>
+                <div className="delete-icon" style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
+            </div>
         </div>
     )
 }

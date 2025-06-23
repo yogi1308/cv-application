@@ -6,8 +6,11 @@ import ExperienceInfo from './sidebar/experience'
 import ProjectsInfo from './sidebar/projects'
 import OtherExperience from './sidebar/otherExperience'
 import Summary from './sidebar/summary'
+import addComponents from './helperFunctions/addComponents'
+import { useState } from 'react'
 
 function Sidebar({ setName, setOtherPersonalDetails, setSummary}) {
+    const [count, setCount] = useState(1);
   return (
       <div className="sidebar">
         <form action="" autoComplete="on">
@@ -30,7 +33,16 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary}) {
               <h1>Educational Background</h1>
               <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.education-name').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-            <EducationInfo />
+            <div className="education-info-container">
+              {Array.from({ length: count }).map((_, idx) => (
+                <div className="education-name" key={idx}>
+                <EducationInfo />
+                </div>
+              ))}
+            </div>
+            <div className="add-or-delete">
+                <div className="add-icon" onClick={() => setCount(c => c + 1)} style={{ fontSize: '2rem' }} title="Add" >+</div>
+                { count > 1 && (<div className="delete-icon" onClick={() => setCount(c => c - 1)} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>)} </div>
           </div>
           <div className='section-container'>
             <div className="section-heading">
