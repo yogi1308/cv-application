@@ -10,6 +10,7 @@ const emptySchool = {
   degree: '',
   major: '',
   additionalInfo: '',
+  hidden: false
 }
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const [otherPersonalDetails, setOtherPersonalDetails] = useState(['', '', '', '', '', ''])
   const [summary, setSummary] = useState('')
   const [showSummary, setShowSummary] = useState(true)
-  const [education, setEducation] = useState([emptySchool])
+  const [education, setEducation] = useState([{id: 0, ...emptySchool}])
   return (
     <>
       <Sidebar setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} setSummary={setSummary} setShowSummary={setShowSummary} setEducation={setEducation} education={education} />

@@ -68,6 +68,9 @@ html {
     --primary-text-color: white;
     --secondary-text-color: #e2e8f0;
   }
+  input[type="month"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
+}
 }
 
 html {
