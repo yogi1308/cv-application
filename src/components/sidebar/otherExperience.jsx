@@ -26,9 +26,9 @@ function OtherExperience() {
                         Provide highlights about your experience, including your roles and responsibilities, key projects or initiatives you worked on, technologies utilized, and any notable achievements or contributions to the organization.
                         <br /> <br />You can Bold, Italicize, Underline or add bullet points as you see fit
                     </p>
-                    <span>Description</span> <span title>⨁</span>
+                    <span>Description</span> <span>⨁</span>
                 </h2>
-                <div id="editor" contenteditable="true" onFocus={(e) => {if (e.target.innerHTML === "●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }} onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics"; e.target.style.color = 'grey' }}}>
+                <div id="editor" contentEditable="true" onFocus={(e) => {if (e.target.innerHTML === "●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }} onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics"; e.target.style.color = 'grey' }}}>
                     ●	Attended weekly meetings to gain experience in Computer Science and Software Engineering topics
                 </div>
             </div>

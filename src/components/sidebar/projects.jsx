@@ -19,9 +19,9 @@ function ProjectsInfo() {
                         Provide highlights about your project, such as your role and activities, the technologies and tools you used, and any significant achievements or outcomes.
                         <br /> <br /> You can Bold, Italicize, Underline or add bullet points as you see fit
                     </p>
-                    <span>Project Description</span> <span title>⨁</span>
+                    <span>Project Description</span> <span>⨁</span>
                 </h2>
-                <div id="editor" contenteditable="true" onFocus={(e) => {if (e.target.innerHTML === "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }} onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions"; e.target.style.color = 'grey' }}}>
+                <div id="editor" contentEditable="true" onFocus={(e) => {if (e.target.innerHTML === "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }} onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions"; e.target.style.color = 'grey' }}}>
                     ●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map
                     <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions
 

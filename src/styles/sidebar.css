@@ -153,16 +153,12 @@ input:focus, #editor:focus {
     padding-bottom: 2rem;
 }
 
-svg {
-    fill: var(--secondary-color);
-}
-
-.add-or-delete {
+.add-or-delete, .school-name-header, .summary-dropdown-hide {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
+    gap: 1rem;
 }
 
 .delete-icon {
