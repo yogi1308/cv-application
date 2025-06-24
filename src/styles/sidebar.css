@@ -147,6 +147,7 @@ input:focus, #editor:focus {
 
 .rotated {
   transform: rotate(180deg);
+  transition: transform 0.2s;
 }
 
 #root > div.sidebar > form > div:nth-child(7) {
@@ -197,7 +198,7 @@ div.resume-education-info {
     min-width: 5.5rem;
 }
 
-#editor {
+.other-school-info > .more-info > #editor {
     transform: translateY(-1.3rem);
 }
 
@@ -208,4 +209,20 @@ div.resume-education-info {
 .hide > svg {
     position: relative;
     transform: translateY(5%);
+}
+
+svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dropdown {
+    transition: transform 0.2s;
+}
+
+svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dropdown:hover {
+    transform: scale(1.25);
+}
+
+#root > div.sidebar > form > div:nth-child(3) > div.education-info-container > div.other-school-info > div.more-info > span > svg:hover {
+    transform: scale(1.15) translateY(-115%) !important;
+}
+
+.rotated:hover {
+    transform: scale(1.25) rotate(180deg);
 }
