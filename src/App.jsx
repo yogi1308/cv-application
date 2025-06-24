@@ -10,7 +10,8 @@ const emptySchool = {
   degree: '',
   major: '',
   additionalInfo: '',
-  hidden: false
+  hidden: false,
+  showAdditionalInfo: true
 }
 
 function App() {

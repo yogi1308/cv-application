@@ -184,3 +184,28 @@ input:focus, #editor:focus {
     flex-direction: column;
     gap: 1rem;
 }
+
+div.resume-education-info {
+    margin-bottom: 0.75rem;
+}
+
+.resume-education-info:nth-last-child(1) {
+    margin-bottom: 0rem;
+}
+
+#gpa {
+    min-width: 5.5rem;
+}
+
+#editor {
+    transform: translateY(-1.3rem);
+}
+
+#root > div.sidebar > form > div:nth-child(3) > div.education-info-container > div.other-school-info > div.more-info > span > svg {
+    transform: translateY(-125%);
+}
+
+.hide > svg {
+    position: relative;
+    transform: translateY(5%);
+}

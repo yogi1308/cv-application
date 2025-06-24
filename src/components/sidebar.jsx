@@ -19,7 +19,8 @@ const emptySchool = {
   degree: '',
   major: '',
   additionalInfo: '',
-  hidden: false
+  hidden: false,
+  showAdditionalInfo: true
 }
 
 function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education}) {
