@@ -99,12 +99,14 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Professional Experience</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.experience-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-            {companies.length === 0 && setSkills({id:0, ...emptyCompany})}
-            {companies.map((company, idx) => (
-                <ExperienceInfo setCompany={setCompany} key={company.id} index={idx} />
-              ))}
+            <div className="experience-info-container">
+              {companies.length === 0 && setSkills({id:0, ...emptyCompany})}
+              {companies.map((company, idx) => (
+                  <ExperienceInfo setCompany={setCompany} key={company.id} index={idx} />
+                ))}
+            </div>
           </div>
           <div className='section-container'>
             <div className="section-heading">
