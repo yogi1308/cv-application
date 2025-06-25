@@ -8,14 +8,14 @@ import ResumeProject from './resume/resumeProject'
 import ResumeOtherExperience from './resume/resumeOtherExperience'
 import ResumeActivities from './resume/resumeActivities'
 
-function Resume({ name, otherPersonalDetails, summary, showSummary, education, showSkills}) {
+function Resume({ name, otherPersonalDetails, summary, showSummary, education, showSkills, skills}) {
     return (
         <div className="resume-wrapper">
             <div className="resume">
                 <ResumePersonalInfo name={name} otherPersonalDetails={otherPersonalDetails} />
                 {showSummary && <ResumeSummary summary={summary} />}
                 <ResumeEducation education={education} />
-                {showSkills && <ResumeSkills />}
+                {showSkills && <ResumeSkills skills={skills} />}
                 <ResumeExperience />
                 <ResumeProject />
                 <ResumeOtherExperience />

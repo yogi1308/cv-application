@@ -13,16 +13,24 @@ function SkillsInfo({setSkills, index}) {
             else {return [...prev.slice(0, index), ...prev.slice(index + 1)]}
         })
     }
+    function handleFieldChange(property, e) {
+        setSkills(prev => 
+            prev.map((skill, idx) =>
+                idx === index ? { ...skill, [property]: e.target.value } : skill
+            )
+        )
+    }
+
     return (
         <div className="skills">
             <div className="skill-name">
                 <div>
                     <h2>Skill</h2>
-                    <input type="text" name="skills" id="skills" placeholder='Front-End'autoComplete="off" />
+                    <input type="text" name="skills" id="skills" placeholder='Front-End'autoComplete="off" onChange={(e) => handleFieldChange('skillType', e)} />
                 </div>
                 <div>
                     <h2>Tools</h2>
-                    <input type="text" name="tools" id="tools" placeholder='HTML, CSS, JavaScript, React' autoComplete="off" />
+                    <input type="text" name="tools" id="tools" placeholder='HTML, CSS, JavaScript, React' autoComplete="off" onChange={(e) => handleFieldChange('skillName', e)} />
                 </div>
             </div>
             <div className="add-or-delete">
