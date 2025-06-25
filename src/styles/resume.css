@@ -2,7 +2,7 @@
   position: relative;
   top: 0rem;
   min-height: 120vh;
-  left: calc(35vw);
+  left: calc(40vw);
   right: 0rem;
   overflow: auto;
   overflow-x: visible;
@@ -52,5 +52,5 @@
 }
 
 .resume-wrapper.shift {
-    transform: translateX(-14.5vw);
+    transform: translateX(-19.5vw);
 }

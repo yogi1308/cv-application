@@ -24,9 +24,19 @@ const emptySchool = {
   showAdditionalInfo: true
 }
 
+const emptyCompany = {
+  companyName: '',
+  companyLocation: '',
+  companyTitle: '',
+  companyTimeFrom: '',
+  companyTimeTo: '',
+  additionalInfo: '',
+  hide: false
+}
+
 const skillsObject = {skillType: '', skillName: ''}
 
-function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills}) {
+function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
     show = !show
@@ -36,7 +46,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
     showSkills = !showSkills
   }
   return ( <>
-    <div className="close-sidebar-icon" onClick={(e) => {document.querySelector('.sidebar').classList.toggle('sidebar-close'); 
+    <div className="close-sidebar-icon" title='Open/Close Sidebar' onClick={(e) => {document.querySelector('.sidebar').classList.toggle('sidebar-close'); 
       document.querySelector('.close-sidebar-icon').classList.toggle('rotated-icon'); 
       e.currentTarget.querySelector('p').classList.toggle('turn-the-icon');
       document.querySelector('.resume-wrapper').classList.toggle('shift')}}><p>◁</p></div>
@@ -91,7 +101,10 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
               <h1>Professional Experience</h1>
               <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-            <ExperienceInfo />
+            {companies.length === 0 && setSkills({id:0, ...emptyCompany})}
+            {companies.map((company, idx) => (
+                <ExperienceInfo setCompany={setCompany} key={company.id} index={idx} />
+              ))}
           </div>
           <div className='section-container'>
             <div className="section-heading">

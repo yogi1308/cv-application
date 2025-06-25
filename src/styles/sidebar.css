@@ -1,6 +1,6 @@
 .sidebar {
     transform-origin: left;
-    max-width: 35vw;
+    max-width: 40vw;
     padding: 0.5rem 1rem;
     border: 1px solid var(--secondary-color);
     border-left: none;
@@ -124,7 +124,7 @@ form > div {
   transition: height 0.3s, transform 0.3s;
 }
 
-#root > div > form > div > div:nth-child(2), .other-school-info {
+#root > div > form > div > div:nth-child(2), .other-school-info, .other-company-info {
     transform-origin: top;
     overflow: hidden;
     transition: height 0.3s, transform 0.3s;
@@ -156,7 +156,7 @@ input:focus, #editor:focus {
     padding-bottom: 2rem;
 }
 
-.add-or-delete, .school-name-header, .summary-dropdown-hide {
+.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -182,7 +182,7 @@ input:focus, #editor:focus {
     color: rgb(0, 102, 255);
 }
 
-.education-name, .education-info-container, .other-school-info {
+.education-name, .education-info-container, .other-school-info, .other-company-info, .experience {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -237,13 +237,13 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
     padding: 0px 5px 1px 3px;
     border-left: 0px;
     top: 1rem;
-    left: 35vw;
+    left: 40vw;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
 .close-sidebar-icon.rotated-icon {
-    transform: translateX(-35.5vw);
+    transform: translateX(-40.5vw);
 }
 
 .sidebar-close {
@@ -256,7 +256,7 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
 }
 
 .close-sidebar-icon.rotated-icon:hover {
-    transform: translateX(-35.5vw) scale(1.2);
+    transform: translateX(-40.5vw) scale(1.2);
 }
 
 .close-sidebar-icon:hover {
@@ -265,5 +265,11 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
 
 .turn-the-icon {
     transform: rotate(180deg);
-    padding: 0px 5px 2px 0px;
+    padding: 0px 6px 2px 0px;
 }
+
+div.from-to {align-items: center;}
+
+div.school-name-header, div.company-name-header {line-height: 200%;}
+
+#root > div.sidebar > form > div:nth-child(5) > div:not(:nth-child(1)):not(:nth-child(2)) {padding-top: 1rem;}

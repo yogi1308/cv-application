@@ -14,6 +14,16 @@ const emptySchool = {
   showAdditionalInfo: true
 }
 
+const emptyCompany = {
+  companyName: '',
+  companyLocation: '',
+  companyTitle: '',
+  companyTimeFrom: '',
+  companyTimeTo: '',
+  additionalInfo: '',
+  hide: false
+}
+
 const skillsObject = {skillType: '', skillName: ''}
 
 function App() {
@@ -24,12 +34,15 @@ function App() {
   const [education, setEducation] = useState([{id: 0, ...emptySchool}])
   const [showSkills, setShowSkills] = useState(true)
   const [skills, setSkills] = useState([{id : 0, ...skillsObject}])
+  const [companies, setCompany] = useState([{id: 0, ...emptyCompany}])
+
   return (
     <>
       <Sidebar setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} setSummary={setSummary} setShowSummary={setShowSummary} 
-      setEducation={setEducation} education={education} setShowSkills={setShowSkills} setSkills={setSkills} skills={skills} />
+      setEducation={setEducation} education={education} setShowSkills={setShowSkills} setSkills={setSkills} skills={skills}
+      setCompany={setCompany} companies={companies} />
       <Resume name={name} otherPersonalDetails={otherPersonalDetails} summary={summary} showSummary={showSummary} 
-      education={education} showSkills={showSkills} skills={skills} />
+      education={education} showSkills={showSkills} skills={skills} companies={companies} />
     </>
   )
 }
