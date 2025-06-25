@@ -1,4 +1,5 @@
 .sidebar {
+    transform-origin: left;
     max-width: 35vw;
     padding: 0.5rem 1rem;
     border: 1px solid var(--secondary-color);
@@ -9,6 +10,7 @@
     display: flex;
     background-color: var(--background-color);
     margin-top: 0.5px;
+    transition: transform 0.3s;
 }
 
 form > div:not(:first-child) {
@@ -225,4 +227,43 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
 
 .rotated:hover {
     transform: scale(1.25) rotate(180deg);
+}
+
+.close-sidebar-icon {
+    position: fixed;
+    border: 1px solid var(--secondary-color);
+    line-height: 100%;
+    background-color: var(--background-color);
+    padding: 0px 5px 1px 3px;
+    border-left: 0px;
+    top: 1rem;
+    left: 35vw;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-sidebar-icon.rotated-icon {
+    transform: translateX(-35.5vw);
+}
+
+.sidebar-close {
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+.close-sidebar-icon > p {
+    transition: transform 0.3s;
+}
+
+.close-sidebar-icon.rotated-icon:hover {
+    transform: translateX(-35.5vw) scale(1.2);
+}
+
+.close-sidebar-icon:hover {
+    transform: scale(1.2);
+}
+
+.turn-the-icon {
+    transform: rotate(180deg);
+    padding: 0px 5px 2px 0px;
 }

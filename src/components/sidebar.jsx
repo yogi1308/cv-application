@@ -35,7 +35,11 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
     setShowSkills(prev => !prev)
     showSkills = !showSkills
   }
-  return (
+  return ( <>
+    <div className="close-sidebar-icon" onClick={(e) => {document.querySelector('.sidebar').classList.toggle('sidebar-close'); 
+      document.querySelector('.close-sidebar-icon').classList.toggle('rotated-icon'); 
+      e.currentTarget.querySelector('p').classList.toggle('turn-the-icon');
+      document.querySelector('.resume-wrapper').classList.toggle('shift')}}><p>◁</p></div>
       <div className="sidebar">
         <form action="" autoComplete="on">
           <div className='section-container'>
@@ -105,6 +109,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           </div>
         </form>
       </div>
+    </>
   )
 }
 
