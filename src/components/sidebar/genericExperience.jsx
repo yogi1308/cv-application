@@ -12,20 +12,21 @@ const emptyExperienceSubsection = {
   hide: false
 }
 
-const emptyExperience = [{id: crypto.randomUUID(), hide: false, experienceTitle: '', ...emptyExperienceSubsection}]
-
 function GenericSection({experienceSection, experiences, setExperience, index}) {
     function addExperience() {
-        const newEntry = { id: crypto.randomUUID(), ...emptyExperience };
+        const newEntry = {id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]};
         setExperience(prev => [
             ...prev.slice(0, index + 1), newEntry, ...prev.slice(index + 1)
         ])
+        console.log(experiences)
     }
     function deleteExperience() {
         setExperience(prev => {
-            if (prev.length === 1) {return [{ id: crypto.randomUUID(), ...emptyExperience }]}
+            if (prev.length === 1) {return [{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]}]}
             else {return [...prev.slice(0, index), ...prev.slice(index + 1)]}
         })
+        console.log(experiences)
+        console.log(index)
     }
     function handleFieldChange(property, e) {
         // if (property === 'hide') {
@@ -67,7 +68,9 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
                     </select>
                 </div>
             </div>
-            <GenericSubsection />
+            {experienceSection.subSections.map((experienceSub, idx) => (
+                <GenericSubsection setExperience={setExperience} experiences={experiences} experienceSub={experienceSub} key={experienceSub.id} index={idx} />
+            ))}
         </div>
     )
 }

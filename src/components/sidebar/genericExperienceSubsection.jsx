@@ -10,21 +10,8 @@ const emptyExperienceSubsection = {
   hide: false
 }
 
-const emptyExperience = [{id: crypto.randomUUID(), hide: false, experienceTitle: '', ...emptyExperienceSubsection}]
-
 function GenericSubsection({experienceSub, experiences, setExperience, index}) {
     function addExperienceSubSection() {
-        // const newEntry = { id: crypto.randomUUID(), ...emptyExperienceSubsection };
-        // setExperience(prev => {
-        //     experienceSection = prev[index]
-        //     experienceSection = []...prev.slice(0, index + 1), newEntry, ...prev.slice(index + 1)
-        // })
-    }
-    function deleteExperienceSubSection() {
-        // setExperience(prev => {
-        //     if (prev.length === 1) {return [{ id: crypto.randomUUID(), ...emptyExperience }]}
-        //     else {return [...prev.slice(0, index), ...prev.slice(index + 1)]}
-        // })
     }
     return (
         <div className="more-experience-info-section" style={{paddingLeft: '1rem'}}>
@@ -68,7 +55,7 @@ function GenericSubsection({experienceSub, experiences, setExperience, index}) {
             </div>
             <div className="add-delete-hide-subsection">
                 <button onClick={() => addExperienceSubSection()} style={{ fontSize: '2rem' }} title="Add a Subsection" ><div className="add-icon">+</div></button>
-                <button onClick={() => addExperienceSubSection()} style={{ fontSize: '1.5rem'}} title="Delete this Subsection" ><div className="delete-icon" >⨂</div></button>
+                <button style={{ fontSize: '1.5rem'}} title="Delete this Subsection" ><div className="delete-icon" >⨂</div></button>
                 <button className="hide" > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d={eyeOpenPath}/></svg></button>
             </div>
         </div>

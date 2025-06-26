@@ -23,8 +23,6 @@ const emptyExperienceSubsection = {
   hide: false
 }
 
-const emptyExperience = [{id: crypto.randomUUID(), hide: false, experienceTitle: '', ...emptyExperienceSubsection}]
-
 const skillsObject = {skillType: '', skillName: ''}
 
 function App() {
@@ -35,7 +33,7 @@ function App() {
   const [education, setEducation] = useState([{id: 0, ...emptySchool}])
   const [showSkills, setShowSkills] = useState(true)
   const [skills, setSkills] = useState([{id : 0, ...skillsObject}])
-  const [experiences, setExperience] = useState([{id: crypto.randomUUID(), ...emptyExperience}])
+  const [experiences, setExperience] = useState([{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]}])
 
   return (
     <>

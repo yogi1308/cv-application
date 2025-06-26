@@ -34,8 +34,6 @@ const emptyExperienceSubsection = {
   hide: false
 }
 
-const emptyExperience = [{id: crypto.randomUUID(), ...emptyExperienceSubsection}]
-
 function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setExperience, experiences}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
@@ -105,7 +103,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
               </div>
             </div>
             <div className="generic-info-container">
-              {experiences.length === 0 && setSkills({id:crypto.randomUUID, ...skillsObject})}
+              {experiences.length === 0 && setExperience({id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]})}
               {experiences.map((experienceSection, idx) => (
                 <GenericSection setExperience={setExperience} experiences={experiences} experienceSection={experienceSection} key={experienceSection.id} index={idx} />
               ))}
