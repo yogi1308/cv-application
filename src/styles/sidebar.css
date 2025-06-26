@@ -124,7 +124,7 @@ form > div {
   transition: height 0.3s, transform 0.3s;
 }
 
-#root > div > form > div > div:nth-child(2), .other-school-info, .other-company-info, .other-project-info, .other-activity-info {
+#root > div > form > div > div:nth-child(2), .other-school-info, .other-company-info, .other-project-info, .other-activity-info, .more-experience-info-section, .experience-other-more-info-container {
     transform-origin: top;
     overflow: hidden;
     transition: height 0.3s, transform 0.3s;
@@ -182,7 +182,7 @@ input:focus, #editor:focus, select:focus, select:hover {
     color: rgb(0, 102, 255);
 }
 
-.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience {
+.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience, .experience-other-more-info-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -285,7 +285,6 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1rem 0px;
 }
 
 .add-delete-hide-subsection > *, button.hide > svg {
@@ -334,4 +333,8 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
   border-top: var(--size) solid white;
   top: 45%;
   right: 0.60rem;
+}
+
+#root > div.sidebar > form > div:nth-last-child(1) {
+    padding-bottom: 2rem;
 }

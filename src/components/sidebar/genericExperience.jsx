@@ -11,7 +11,7 @@ function GenericSection() {
                         <div className="add-icon" style={{ fontSize: '1.75rem' }} title="Add" >+</div>
                         <div className="delete-icon" title="delete" >⨂</div>
                         <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d={eyeOpenPath}/></svg></div>
-                        <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.company-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
+                        <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.expereice-name-header').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                 </div>
                 <div className="custom-select">
@@ -27,41 +27,43 @@ function GenericSection() {
                     </select>
                 </div>
             </div>
-            <div className="more-experience-info-section">
+            <div className="more-experience-info-section" style={{paddingLeft: '1rem'}}>
                 <div className="experience-name">
                     <div className="subsection-name-and-dropdown" style={{paddingRight: '0.25rem'}}>
-                        <h2>Name</h2>   <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.company-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
+                        <h2>Name</h2>   <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.experience-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                     <input type="text" name='experience-name' id='experience-name' placeholder='Company/Team/Project/Club Name' autoComplete="off"/>
                 </div>
-                <div className="experience-location">
-                    <h2>Location</h2>
-                    <input type="text" name='experience-location' id='experience-location' placeholder='Enter Location' autoComplete="off"/>
-                </div>
-                <div className="experience-role">
-                    <h2>Role</h2>
-                    <input type="text" name='experience-role' id='experience-role' placeholder='Job Role or Title' autoComplete="off" />
-                </div>
-                <div className="time-period">
-                    <h2>Time Period</h2>
-                    <div className="from-to">
-                        <input type="text" name="club-time-from" id="club-time-from" placeholder='From' autoComplete="off" />
-                        <input type="text" name="club-time-to" id="club-time-to" placeholder='To' autoComplete="off" />
+                <div className="experience-other-more-info-container">
+                    <div className="experience-location">
+                        <h2>Location</h2>
+                        <input type="text" name='experience-location' id='experience-location' placeholder='Enter Location' autoComplete="off"/>
                     </div>
-                </div>
-                <div className="more-info">
-                    <h2>
-                        <p className="info-on-more-info">
-                            Provide highlights about your experience, such as your role and activities, the technologies and tools you used, and any significant achievements or outcomes.
-                            <br /> <br /> You can Bold, Italicize, Underline or add bullet points as you see fit
-                        </p>
-                        <span>Description</span> <span>⨁</span>
-                    </h2>
-                    <div id="editor" contenteditable="true"
-                    onFocus={(e) => {if (e.target.innerHTML === "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }}
-                    onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions"; e.target.style.color = 'grey' }}}>
-                        ●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map
-                        <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions
+                    <div className="experience-role">
+                        <h2>Role</h2>
+                        <input type="text" name='experience-role' id='experience-role' placeholder='Job Role or Title' autoComplete="off" />
+                    </div>
+                    <div className="time-period">
+                        <h2>Time Period</h2>
+                        <div className="from-to">
+                            <input type="text" name="club-time-from" id="club-time-from" placeholder='From' autoComplete="off" />
+                            <input type="text" name="club-time-to" id="club-time-to" placeholder='To' autoComplete="off" />
+                        </div>
+                    </div>
+                    <div className="more-info">
+                        <h2>
+                            <p className="info-on-more-info">
+                                Provide highlights about your experience, such as your role and activities, the technologies and tools you used, and any significant achievements or outcomes.
+                                <br /> <br /> You can Bold, Italicize, Underline or add bullet points as you see fit
+                            </p>
+                            <span>Description</span> <span>⨁</span>
+                        </h2>
+                        <div id="editor" contenteditable="true"
+                        onFocus={(e) => {if (e.target.innerHTML === "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }}
+                        onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions"; e.target.style.color = 'grey' }}}>
+                            ●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map
+                            <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions
+                        </div>
                     </div>
                 </div>
                 <div className="add-delete-hide-subsection">

@@ -24,6 +24,18 @@ const emptySchool = {
 
 const skillsObject = {skillType: '', skillName: ''}
 
+// const emptyExperienceSubsection = {
+//   experienceType: '',
+//   experienceRole: '',
+//   experienceName: '',
+//   experienceTimeFrom: '',
+//   experienceTimeTo: '',
+//   additionalInfo: '',
+//   hide: false
+// }
+
+// const emptyExperience = {emptyExperienceSubsection}
+
 function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setExperience, experiences}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
@@ -52,7 +64,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="section-heading">
               <h1>Summary</h1>
               <div className='summary-dropdown-hide' >
-                <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowSummary} height="20px" viewBox="0 -960 960 960" width="20px"><path d={show ? eyeOpenPath : eyeClosedPath} /></svg></div>
+                <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowSummary} height="25px" viewBox="0 -960 960 960" width="25px"><path d={show ? eyeOpenPath : eyeClosedPath} /></svg></div>
                 <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.summary').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>              
               </div>
             </div>
@@ -89,12 +101,14 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="section-heading">
               <h1>Experiences</h1>
               <div className="dropdown-hide">
-                <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"><path d={eyeOpenPath} /></svg></div>
-                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.generic-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
               </div>
             </div>
             <div className="generic-info-container">
-              <GenericSection />
+              {experiences.length === 0 && setSkills({id:0, ...skillsObject})}
+              {experiences.map((experience, idx) => (
+                <GenericSection setExperience={setExperience} key={experience.id} index={idx} />
+              ))}
             </div>
           </div>
         </form>

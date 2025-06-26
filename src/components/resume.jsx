@@ -3,12 +3,9 @@ import ResumePersonalInfo from './resume/resumePersonalInfo'
 import ResumeSummary from './resume/resumeSummary'
 import ResumeEducation from './resume/resumeEducation'
 import ResumeSkills from './resume/resumeSkills'
-import ResumeExperience from './resume/resumeExperience'
-import ResumeProject from './resume/resumeProject'
-import ResumeOtherExperience from './resume/resumeOtherExperience'
-import ResumeActivities from './resume/resumeActivities'
+import ResumeGenericExperience from './resume/resumeGenericExperience'
 
-function Resume({ name, otherPersonalDetails, summary, showSummary, education, showSkills, skills, companies, projects, activities, showActivities}) {
+function Resume({ name, otherPersonalDetails, summary, showSummary, education, showSkills, skills, experiences}) {
     return (
         <div className="resume-wrapper">
             <div className="resume">
@@ -16,10 +13,7 @@ function Resume({ name, otherPersonalDetails, summary, showSummary, education, s
                 {showSummary && <ResumeSummary summary={summary} />}
                 <ResumeEducation education={education} />
                 {showSkills && <ResumeSkills skills={skills} />}
-                <ResumeExperience companies={companies}/>
-                <ResumeProject projects={projects} />
-                <ResumeOtherExperience />
-                {showActivities && <ResumeActivities activities={activities} />}
+                <ResumeGenericExperience experiences={experiences}/>
             </div>
         </div>
     )
