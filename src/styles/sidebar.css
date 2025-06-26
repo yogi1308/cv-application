@@ -14,7 +14,7 @@
 }
 
 form > div:not(:first-child) {
-    border-top: 1px solid var(--secondary-color);
+    border-top: 1px solid gray;;
     padding-top: 1.5rem;
 }
 
@@ -118,7 +118,7 @@ form > div {
 }
 
 .close {
-  transform: scaleY(0);
+  transform: scaleY(1);
   height: 0;
   overflow: hidden;
   transition: height 0.3s, transform 0.3s;
@@ -337,4 +337,8 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
 
 #root > div.sidebar > form > div:nth-last-child(1) {
     padding-bottom: 2rem;
+}
+
+#root > div.sidebar > form > div > div.education-info-container > div.other-school-info:not(:nth-last-child(1)) {
+    border-bottom: 1px dashed var(--secondary-color);
 }
