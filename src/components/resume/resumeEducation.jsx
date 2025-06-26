@@ -17,7 +17,7 @@ function ResumeEducation({education}) {
                             <p>{school.gpa || "3.82 GPA"}</p>
                         </div>
                         {school.showAdditionalInfo && 
-                            <div dangerouslySetInnerHTML={{
+                            <p dangerouslySetInnerHTML={{
                                 __html:
                                 school.additionalInfo && school.additionalInfo.trim() !== ""
                                     ? school.additionalInfo

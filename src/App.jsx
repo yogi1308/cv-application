@@ -14,16 +14,16 @@ const emptySchool = {
   showAdditionalInfo: true
 }
 const emptyExperienceSubsection = {
-  experienceType: '',
-  experienceRole: '',
   experienceName: '',
+  experienceLocation: '',
+  experienceRole: '',
   experienceTimeFrom: '',
   experienceTimeTo: '',
   additionalInfo: '',
   hide: false
 }
 
-const emptyExperience = {emptyExperienceSubsection}
+const emptyExperience = [{id: crypto.randomUUID(), hide: false, experienceTitle: '', ...emptyExperienceSubsection}]
 
 const skillsObject = {skillType: '', skillName: ''}
 
@@ -35,7 +35,7 @@ function App() {
   const [education, setEducation] = useState([{id: 0, ...emptySchool}])
   const [showSkills, setShowSkills] = useState(true)
   const [skills, setSkills] = useState([{id : 0, ...skillsObject}])
-  const [experiences, setExperience] = useState([{id: 0, ...emptyExperience}])
+  const [experiences, setExperience] = useState([{id: crypto.randomUUID(), ...emptyExperience}])
 
   return (
     <>
