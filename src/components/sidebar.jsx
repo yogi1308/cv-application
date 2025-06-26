@@ -34,9 +34,18 @@ const emptyCompany = {
   hide: false
 }
 
+const emptyProject = {
+  projectName: '',
+  projectType: '',
+  projectRole: '',
+  projectTimePeriod: '',
+  additionalInfo: '',
+  hide: false
+}
+
 const skillsObject = {skillType: '', skillName: ''}
 
-function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies}) {
+function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies, projects, setProject}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
     show = !show
@@ -111,9 +120,14 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Project Experience</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.project-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.projects-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-          <ProjectsInfo />
+            <div className="projects-info-container">
+              {projects.length === 0 && setProject({id: 0, ...emptyProject})}
+              {projects.map((project, idx) => (
+                <ProjectsInfo setProject={setProject} key={project.id} index={idx}/>
+              ))}
+            </div>
           </div>
           <div className='section-container'>
             <div className="section-heading">
