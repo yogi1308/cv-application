@@ -22,7 +22,7 @@ form > div {
     margin-bottom: 2rem;
 }
 
-.section-heading {
+.section-heading, .header-and-icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +42,7 @@ h1 {
     font-weight: 400;
 }
 
-h2, p, input, #editor {
+h2, p, input, #editor, select {
     font-weight: 200;
 }
 
@@ -54,11 +54,11 @@ h2 {
     font-size: 1.25rem;
 }
 
-input, #editor {
+input, #editor, select {
     font-size: 1.05rem;
 }
 
-input, #editor {
+input, #editor, select, button {
   background: var(--primary-color);
   border: 1px solid var(--secondary-color);
   border-radius: 5px;
@@ -137,7 +137,7 @@ form > div {
     max-width: 98%;
 }
 
-input:focus, #editor:focus {
+input:focus, #editor:focus, select:focus, select:hover {
     outline: none;
     border: 1px solid var(--primary-text-color);
 }
@@ -156,7 +156,7 @@ input:focus, #editor:focus {
     padding-bottom: 2rem;
 }
 
-.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header, .dropdown-hide {
+.school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header, .dropdown-hide, .subsection-name-and-dropdown {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -182,7 +182,7 @@ input:focus, #editor:focus {
     color: rgb(0, 102, 255);
 }
 
-.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info {
+.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -270,7 +270,7 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
 
 div.from-to {align-items: center;}
 
-div.school-name-header, div.company-name-header, .project-name-header, .activity-name-header {line-height: 200%;}
+div.school-name-header, div.company-name-header, .project-name-header, .activity-name-header, .header-and-icons {line-height: 200%;}
 
 .experience-info-container > div:not(:nth-child(1)),
 .projects-info-container > div:not(:nth-child(1)), .activities-info-container > div:not(:nth-child(1)) 
@@ -278,4 +278,60 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
 
 .company-name, .project-name, .club-name {
     margin-bottom: 1rem;
+}
+
+.add-delete-hide-subsection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0px;
+}
+
+.add-delete-hide-subsection > *, button.hide > svg {
+    align-self: stretch;
+    justify-self: center;
+    place-content: center;
+}
+
+.add-or-delete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+.custom-select {
+  min-width: 350px;
+  position: relative;
+}
+
+.custom-select select {
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid white;
+  top: 45%;
+  right: 0.60rem;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid white;
+  top: 45%;
+  right: 0.60rem;
 }
