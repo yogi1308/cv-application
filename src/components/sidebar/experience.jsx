@@ -13,7 +13,7 @@ const eyeClosedPath = "m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5
 
 let showWholeSection = true
 
-function ExperienceInfo({setCompany, index}) {
+function ExperienceInfo({setCompany, index, companies}) {
     function addCompany() {
         const newEntry = { id: Date.now(), ...emptyCompany };
         setCompany(prev => [
@@ -72,7 +72,7 @@ function ExperienceInfo({setCompany, index}) {
                     <div className="add-or-delete">
                             <div className="add-icon" onClick={() => addCompany()} style={{ fontSize: '2rem' }} title="Add" >+</div>
                             <div className="delete-icon"  onClick={() => deleteCompany()} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
-                            <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path onClick={(e) => {handleFieldChange('hidden', e)}} d={showWholeSection ? eyeOpenPath : eyeClosedPath}/></svg></div>
+                            <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path onClick={(e) => {handleFieldChange('hidden', e)}} d={!companies[index]?.hide ? eyeOpenPath : eyeClosedPath}/></svg></div>
                             <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.company-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                 </div>

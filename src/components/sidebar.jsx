@@ -4,7 +4,7 @@ import EducationInfo from './sidebar/education'
 import SkillsInfo from './sidebar/skills'
 import ExperienceInfo from './sidebar/experience'
 import ProjectsInfo from './sidebar/projects'
-import OtherExperience from './sidebar/otherExperience'
+import ActivitiesInfo from './sidebar/ActivitiesInfo'
 import Summary from './sidebar/summary'
 
 const eyeOpenPath = "M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z";
@@ -43,9 +43,20 @@ const emptyProject = {
   hide: false
 }
 
+const emptyActivity = {
+  activityName: '',
+  activityLocation: '',
+  activityTitle: '',
+  activityTimePeriodFrom: '',
+  activityTimePeriodTo: '',
+  additionalInfo: '',
+  hide: false
+}
+
+
 const skillsObject = {skillType: '', skillName: ''}
 
-function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies, projects, setProject}) {
+function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies, projects, setProject, setActivities, activities, setShowActivities, showActivities}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
     show = !show
@@ -53,6 +64,10 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
   function handleShowSkills() {
     setShowSkills(prev => !prev)
     showSkills = !showSkills
+  }
+  function handleShowActivities() {
+    setShowActivities(prev => !prev)
+    console.log(showActivities)
   }
   return ( <>
     <div className="close-sidebar-icon" title='Open/Close Sidebar' onClick={(e) => {document.querySelector('.sidebar').classList.toggle('sidebar-close'); 
@@ -86,7 +101,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="education-info-container">
               {education.length === 0 && setEducation({id: 0, ...emptySchool})}
               {education.map((ed, idx) => (
-                <EducationInfo setEducation={setEducation} key={ed.id} index={idx} />
+                <EducationInfo setEducation={setEducation} key={ed.id} index={idx} education={education} />
               ))}
             </div>
           </div>
@@ -113,7 +128,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="experience-info-container">
               {companies.length === 0 && setSkills({id:0, ...emptyCompany})}
               {companies.map((company, idx) => (
-                  <ExperienceInfo setCompany={setCompany} key={company.id} index={idx} />
+                  <ExperienceInfo setCompany={setCompany} key={company.id} index={idx} companies={companies} />
                 ))}
             </div>
           </div>
@@ -125,16 +140,22 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="projects-info-container">
               {projects.length === 0 && setProject({id: 0, ...emptyProject})}
               {projects.map((project, idx) => (
-                <ProjectsInfo setProject={setProject} key={project.id} index={idx}/>
+                <ProjectsInfo setProject={setProject} key={project.id} index={idx} projects={projects} />
               ))}
             </div>
           </div>
           <div className='section-container'>
             <div className="section-heading">
-              <h1>Extra-Curricular/Leadership Expereince</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <h1>Extra-Curricular/Leadership Experience</h1>
+              <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowActivities} height="30px" viewBox="0 -960 960 960" width="30px"><path d={showActivities ? eyeOpenPath : eyeClosedPath} /></svg></div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
-            <OtherExperience />
+            <div className="activities-info-container">
+              {activities.length === 0 && setProject({id: 0, ...emptyActivity})}
+              {activities.map((activity, idx) => (
+                <ActivitiesInfo setActivities={setActivities} key={activity.id} index={idx} activities={activities} />
+              ))}
+            </div>
           </div>
         </form>
       </div>

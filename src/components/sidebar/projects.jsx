@@ -12,8 +12,8 @@ const eyeClosedPath = "m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5
 
 let showWholeSection = true
 
-function ProjectsInfo({setProject, index}) {
-        function addProject() {
+function ProjectsInfo({setProject, index, projects}) {
+    function addProject() {
         const newEntry = { id: Date.now(), ...emptyProject };
         setProject(prev => [
             ...prev.slice(0, index + 1), newEntry, ...prev.slice(index + 1)
@@ -59,7 +59,7 @@ function ProjectsInfo({setProject, index}) {
                     <div className="add-or-delete">
                             <div className="add-icon" onClick={() => addProject()} style={{ fontSize: '2rem' }} title="Add" >+</div>
                             <div className="delete-icon"  onClick={() => deleteProject()} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
-                            <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d={showWholeSection ? eyeOpenPath : eyeClosedPath}/></svg></div>
+                            <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d={!projects[index]?.hide ? eyeOpenPath : eyeClosedPath}/></svg></div>
                             <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.project-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                 </div>

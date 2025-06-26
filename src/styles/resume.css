@@ -45,7 +45,7 @@
     justify-content: space-between;
 }
 
-.resume-experience-info, .resume-project-info, .resume-other-experience-info {
+.resume-experience-info, .resume-project-info, .resume-other-experience-info, .resume-activities-info {
     display: flex;
     flex-direction: column;
     gap: 10px;

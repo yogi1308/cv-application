@@ -124,7 +124,7 @@ form > div {
   transition: height 0.3s, transform 0.3s;
 }
 
-#root > div > form > div > div:nth-child(2), .other-school-info, .other-company-info, .other-project-info {
+#root > div > form > div > div:nth-child(2), .other-school-info, .other-company-info, .other-project-info, .other-activity-info {
     transform-origin: top;
     overflow: hidden;
     transition: height 0.3s, transform 0.3s;
@@ -156,7 +156,7 @@ input:focus, #editor:focus {
     padding-bottom: 2rem;
 }
 
-.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header {
+.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -182,7 +182,7 @@ input:focus, #editor:focus {
     color: rgb(0, 102, 255);
 }
 
-.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info {
+.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -270,7 +270,12 @@ svg:hover, .dropdown-svg:hover, .add-icon:hover, .delete-icon:hover, .school-dro
 
 div.from-to {align-items: center;}
 
-div.school-name-header, div.company-name-header, .project-name-header {line-height: 200%;}
+div.school-name-header, div.company-name-header, .project-name-header, .activity-name-header {line-height: 200%;}
 
-#root > div.sidebar > form > div:nth-child(5) > div:not(:nth-child(1)):not(:nth-child(2)),
-.projects-info-container > div:not(:nth-child(1)) {padding-top: 1rem;}
+.experience-info-container > div:not(:nth-child(1)),
+.projects-info-container > div:not(:nth-child(1)), .activities-info-container > div:not(:nth-child(1)) 
+{padding-top: 2rem;}
+
+.company-name, .project-name, .club-name {
+    margin-bottom: 1rem;
+}
