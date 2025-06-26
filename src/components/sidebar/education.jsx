@@ -80,7 +80,7 @@ function EducationInfo({setEducation, index, education}) {
             <div className="school-name">
                 <div className="school-name-header">
                     <h2>School Name</h2>
-                    <div className="add-or-delete">
+                    <div className="add-or-delete" style={{paddingRight: '0.25rem'}}>
                         <div className="add-icon" onClick={() => addSchool()} style={{ fontSize: '2rem' }} title="Add" >+</div>
                         <div className="delete-icon"  onClick={() => deleteSchool()} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
                         <div className="hide" onClick={(e) => {handleFieldChange('hidden', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d={!education[index]?.hidden ? eyeOpenPath : eyeClosedPath}/></svg></div>

@@ -69,7 +69,7 @@ function ExperienceInfo({setCompany, index, companies}) {
             <div className='company-name'>
                 <div className="company-name-header">
                     <h2>Company Name</h2>
-                    <div className="add-or-delete">
+                    <div className="add-or-delete" style={{paddingRight: '0.25rem'}}>
                             <div className="add-icon" onClick={() => addCompany()} style={{ fontSize: '2rem' }} title="Add" >+</div>
                             <div className="delete-icon"  onClick={() => deleteCompany()} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
                             <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path onClick={(e) => {handleFieldChange('hidden', e)}} d={!companies[index]?.hide ? eyeOpenPath : eyeClosedPath}/></svg></div>

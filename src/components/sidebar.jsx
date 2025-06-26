@@ -56,7 +56,7 @@ const emptyActivity = {
 
 const skillsObject = {skillType: '', skillName: ''}
 
-function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies, projects, setProject, setActivities, activities, setShowActivities, showActivities}) {
+function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary, setEducation, education, setShowSkills, setSkills, skills, setCompany, companies, projects, setProject, setActivities, activities, setShowActivities, showActivities, setShowProjects, showProjects}) {
   function handleShowSummary() {
     setShowSummary(prev => !prev)
     show = !show
@@ -67,7 +67,9 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
   }
   function handleShowActivities() {
     setShowActivities(prev => !prev)
-    console.log(showActivities)
+  }
+  function handleShowProjects() {
+    setShowProjects(prev => !prev)
   }
   return ( <>
     <div className="close-sidebar-icon" title='Open/Close Sidebar' onClick={(e) => {document.querySelector('.sidebar').classList.toggle('sidebar-close'); 
@@ -79,7 +81,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Personal Information</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.personal-info').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.personal-info').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
             <PersonalInfo setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} />
           </div>
@@ -88,7 +90,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
               <h1>Summary</h1>
               <div className='summary-dropdown-hide' >
                 <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowSummary} height="20px" viewBox="0 -960 960 960" width="20px"><path d={show ? eyeOpenPath : eyeClosedPath} /></svg></div>
-                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.summary').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.75rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>              
+                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.summary').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>              
               </div>
             </div>
             <Summary setSummary={setSummary} />
@@ -96,7 +98,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Educational Background</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated'); document.querySelector('.education-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated'); document.querySelector('.education-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
             <div className="education-info-container">
               {education.length === 0 && setEducation({id: 0, ...emptySchool})}
@@ -109,8 +111,8 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
             <div className="section-heading">
               <h1>Skills Section</h1>
               <div className="summary-dropdown-hide">
-                <div className="hide"> <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowSkills} height="20px" viewBox="0 -960 960 960" width="20px"><path d={showSkills ? eyeOpenPath : eyeClosedPath} /></svg></div>
-                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.skills-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+                <div className="hide"> <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowSkills} height="25px" viewBox="0 -960 960 960" width="25px"><path d={showSkills ? eyeOpenPath : eyeClosedPath} /></svg></div>
+                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.skills-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
               </div>
             </div>
             <div className="skills-info-container">
@@ -123,7 +125,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Professional Experience</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.experience-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.experience-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
             </div>
             <div className="experience-info-container">
               {companies.length === 0 && setSkills({id:0, ...emptyCompany})}
@@ -135,7 +137,10 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Project Experience</h1>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.projects-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '1.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-hide">
+                <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowProjects} height="25px" viewBox="0 -960 960 960" width="25px"><path d={showProjects ? eyeOpenPath : eyeClosedPath} /></svg></div>
+                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.projects-info-container').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              </div>
             </div>
             <div className="projects-info-container">
               {projects.length === 0 && setProject({id: 0, ...emptyProject})}
@@ -147,8 +152,10 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
           <div className='section-container'>
             <div className="section-heading">
               <h1>Extra-Curricular/Leadership Experience</h1>
-              <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowActivities} height="30px" viewBox="0 -960 960 960" width="30px"><path d={showActivities ? eyeOpenPath : eyeClosedPath} /></svg></div>
-              <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              <div className="dropdown-hide">
+                <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" onClick={handleShowActivities} height="30px" viewBox="0 -960 960 960" width="30px"><path d={showActivities ? eyeOpenPath : eyeClosedPath} /></svg></div>
+                <div className="dropdown-svg" onClick={(e) => {e.target.classList.toggle('rotated');document.querySelector('.other-experience').classList.toggle('close'); e.currentTarget.closest('.section-container').style.marginBottom !== '0rem' ? e.currentTarget.closest('.section-container').style.marginBottom = '0rem' : e.currentTarget.closest('.section-container').style.marginBottom = ''}} style={{ fontSize: '2.5rem', cursor: 'pointer', userSelect: 'none' }}>▾</div>
+              </div>
             </div>
             <div className="activities-info-container">
               {activities.length === 0 && setProject({id: 0, ...emptyActivity})}

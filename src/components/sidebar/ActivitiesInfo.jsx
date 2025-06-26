@@ -58,7 +58,7 @@ function ActivitiesInfo({setActivities, index, activities}) {
             <div className='club-name'>
                 <div className="activity-name-header">
                     <h2>Program/Club Name</h2>
-                    <div className="add-or-delete">
+                    <div className="add-or-delete" style={{paddingRight: '0.25rem'}}>
                         <div className="add-icon" onClick={() => addActivity()} style={{ fontSize: '2rem' }} title="Add" >+</div>
                         <div className="delete-icon"  onClick={() => deleteActivity()} style={{ fontSize: '1.5rem'}} title="delete" >⨂</div>
                         <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path onClick={(e) => {handleFieldChange('hidden', e)}} d={!activities[index]?.hide ? eyeOpenPath : eyeClosedPath}/></svg></div>

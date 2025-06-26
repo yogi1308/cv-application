@@ -156,7 +156,7 @@ input:focus, #editor:focus {
     padding-bottom: 2rem;
 }
 
-.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header {
+.add-or-delete, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header, .dropdown-hide {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
