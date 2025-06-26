@@ -103,7 +103,7 @@ function Sidebar({ setName, setOtherPersonalDetails, setSummary, setShowSummary,
               </div>
             </div>
             <div className="generic-info-container">
-              {experiences.length === 0 && setExperience({id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]})}
+              {experiences.length === 0 && setExperience({id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [{id: crypto.randomUUID(), ...emptyExperienceSubsection}]})}
               {experiences.map((experienceSection, idx) => (
                 <GenericSection setExperience={setExperience} experiences={experiences} experienceSection={experienceSection} key={experienceSection.id} index={idx} />
               ))}

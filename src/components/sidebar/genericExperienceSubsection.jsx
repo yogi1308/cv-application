@@ -10,9 +10,41 @@ const emptyExperienceSubsection = {
   hide: false
 }
 
-function GenericSubsection({experienceSub, experiences, setExperience, index}) {
-    function addExperienceSubSection() {
+function GenericSubsection({experienceSub, experiences, setExperience, index, sectionIndex}) {
+    function addExperienceSubSection(e) {
+        e.preventDefault();
+        const newEntry = { id: crypto.randomUUID(), ...emptyExperienceSubsection };
+        setExperience(prev => 
+            prev.map((sec, idx) =>
+                idx === sectionIndex? {
+                    ...sec,
+                    subSections: [
+                        ...sec.subSections.slice(0, index + 1),
+                        newEntry,
+                        ...sec.subSections.slice(index + 1)
+                    ]
+                    }
+                : sec
+            )
+        )
     }
+
+    function deleteExpereinceSubSection(e) {
+        e.preventDefault();
+        setExperience(prev => 
+            prev.map((sec, idx) =>
+                idx === sectionIndex? {
+                    ...sec,
+                    subSections: [
+                        ...sec.subSections.slice(0, index),
+                        ...sec.subSections.slice(index + 1)
+                    ]
+                }
+                : sec
+            )
+        )
+    }
+
     return (
         <div className="more-experience-info-section" style={{paddingLeft: '1rem'}}>
             <div className="experience-name">
@@ -54,8 +86,8 @@ function GenericSubsection({experienceSub, experiences, setExperience, index}) {
                 </div>
             </div>
             <div className="add-delete-hide-subsection">
-                <button onClick={() => addExperienceSubSection()} style={{ fontSize: '2rem' }} title="Add a Subsection" ><div className="add-icon">+</div></button>
-                <button style={{ fontSize: '1.5rem'}} title="Delete this Subsection" ><div className="delete-icon" >⨂</div></button>
+                <button onClick={(e) => addExperienceSubSection(e)} style={{ fontSize: '2rem' }} title="Add a Subsection" ><div className="add-icon">+</div></button>
+                <button onClick={(e) => deleteExpereinceSubSection(e)} style={{ fontSize: '1.5rem'}} title="Delete this Subsection" ><div className="delete-icon" >⨂</div></button>
                 <button className="hide" > <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d={eyeOpenPath}/></svg></button>
             </div>
         </div>

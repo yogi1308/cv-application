@@ -14,7 +14,7 @@ const emptyExperienceSubsection = {
 
 function GenericSection({experienceSection, experiences, setExperience, index}) {
     function addExperience() {
-        const newEntry = {id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]};
+        const newEntry = {id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [{id: crypto.randomUUID(), ...emptyExperienceSubsection}]};
         setExperience(prev => [
             ...prev.slice(0, index + 1), newEntry, ...prev.slice(index + 1)
         ])
@@ -22,7 +22,7 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
     }
     function deleteExperience() {
         setExperience(prev => {
-            if (prev.length === 1) {return [{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [emptyExperienceSubsection]}]}
+            if (prev.length === 1) {return [{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [{id: crypto.randomUUID(), ...emptyExperienceSubsection}]}]}
             else {return [...prev.slice(0, index), ...prev.slice(index + 1)]}
         })
         console.log(experiences)
@@ -69,7 +69,7 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
                 </div>
             </div>
             {experienceSection.subSections.map((experienceSub, idx) => (
-                <GenericSubsection setExperience={setExperience} experiences={experiences} experienceSub={experienceSub} key={experienceSub.id} index={idx} />
+                <GenericSubsection setExperience={setExperience} experiences={experiences} experienceSub={experienceSub} key={experienceSub.id} index={idx} sectionIndex={index}/>
             ))}
         </div>
     )
