@@ -6,6 +6,7 @@ const defaultText = `
 `;
 
 function ResumeGenericExperienceSubSection({subSec}) {
+    if (subSec.hide) return null
     const nameLoc = [subSec.experienceName, subSec.experienceLocation].filter(Boolean).join(', ');
     const fullTitle = [nameLoc, subSec.experienceRole].filter(Boolean).join(': ');
     const timePeriod = [subSec.experienceTimeFrom, subSec.experienceTimeTo].filter(Boolean).join(' - ')
