@@ -1,7 +1,7 @@
 function ResumeOtherExperience() {
     return (
         <div className="resume-other-experience-container">
-            <p className="resume-other-experience-header resume-header"><strong>Work Experience</strong></p>
+            <p className="resume-other-experience-header resume-header"><strong>Professional Experience</strong></p>
             <div className="resume-other-experience-info">
                 <div className="resume-other-container">
                     <div className="resume-other-experience">

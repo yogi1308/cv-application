@@ -156,7 +156,7 @@ input:focus, #editor:focus, select:focus, select:hover {
     padding-bottom: 2rem;
 }
 
-.school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header, .dropdown-hide, .subsection-name-and-dropdown {
+.print-example-buttons, .school-name-header, .summary-dropdown-hide, .company-name-header, .project-name-header, .activity-name-header, .dropdown-hide, .subsection-name-and-dropdown {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -346,3 +346,5 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
 input.other.hide-input {display: none}
 
 .reduce-gap {gap: 5px}
+
+button {cursor: pointer;}

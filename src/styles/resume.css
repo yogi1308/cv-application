@@ -40,7 +40,7 @@
     border-bottom: 1px solid var(--primary-text-color);
 }
 
-.resume-experience, .resume-course-name, .resume-school-name, .resume-company, .resume-project, .resume-other-experience, .resume-activities {
+.resume-activities, .resume-experience, .resume-course-name, .resume-school-name, .resume-company, .resume-project, .resume-other-experience, .resume-activities {
     display: flex;
     justify-content: space-between;
 }
@@ -56,3 +56,5 @@
 }
 
 .resume-experience-info > div:nth-last-child(1) {margin-bottom: 10px;}
+
+.resume-activities-info {gap: 0px}
