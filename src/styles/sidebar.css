@@ -348,3 +348,5 @@ input.other.hide-input {display: none}
 .reduce-gap {gap: 5px}
 
 button {cursor: pointer;}
+
+.print-example-buttons {align-items: stretch;}

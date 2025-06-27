@@ -5,6 +5,7 @@ function Print({setShowExample, showExample}) {
     }
     function print(e) {
         e.preventDefault()
+        window.print()
     }
     return (
         <div className="print-example-buttons">

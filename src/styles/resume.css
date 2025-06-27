@@ -58,3 +58,58 @@
 .resume-experience-info > div:nth-last-child(1) {margin-bottom: 10px;}
 
 .resume-activities-info {gap: 0px}
+
+@media print {
+  /* 1) Zero out the page margins so browser headers/footers get clipped */
+  @page {
+    size: auto;      /* use the user’s paper size */
+    margin: 0;       /* zero margins so the header/footer land outside the content box */
+  }
+
+  /* 2) Force your CSS variables into light defaults */
+  :root {
+    --background-color: white !important;
+    --primary-color: white !important;
+    --secondary-color: lightgray !important;
+    --primary-text-color: black !important;
+    --secondary-text-color: darkgray !important;
+  }
+
+  /* 3) Make sure background-colors actually print in Chrome/Firefox */
+  html, body, .resume-wrapper, .resume {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 4) Hide all the controls/UI but leave your resume in place */
+  .sidebar,
+  .close-sidebar-icon,
+  button,
+  input,
+  select {
+    display: none !important;
+  }
+
+  /* 5) Stretch the resume to the full page */
+  .resume-wrapper {
+    position: static !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .resume {
+    border: none !important;
+    box-shadow: none !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+    aspect-ratio: auto !important;
+    padding: 1.27cm !important;
+  }
+
+  /* 6) Prevent page‐breaks inside each section */
+  .resume > * {
+    page-break-inside: avoid;
+  }
+}
