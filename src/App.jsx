@@ -4,6 +4,8 @@ import Sidebar from './components/sidebar.jsx'
 import Resume from './components/resume.jsx'
 import onLoadSidebarClicks from './components/onLoad.js';
 
+export {emptySchool, emptyExperienceSubsection, skillsObject}
+
 const emptySchool = {
   schoolName: '',
   schoolLocation: '',
@@ -24,7 +26,6 @@ const emptyExperienceSubsection = {
   additionalInfo: '',
   hide: false
 }
-
 const skillsObject = {skillType: '', skillName: ''}
 
 function App() {
@@ -47,8 +48,8 @@ function App() {
 
   return (
     <>
-      <Sidebar setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} setSummary={setSummary} setShowSummary={setShowSummary} 
-      setEducation={setEducation} education={education} setShowSkills={setShowSkills} setSkills={setSkills} skills={skills}
+      <Sidebar setName={setName} setOtherPersonalDetails={setOtherPersonalDetails} setSummary={setSummary} showSummary={showSummary} setShowSummary={setShowSummary} 
+      setEducation={setEducation} education={education} showSkills={showSkills} setShowSkills={setShowSkills} setSkills={setSkills} skills={skills}
       experiences={experiences} setExperience={setExperience} setShowExample={setShowExample} showExample={showExample} />
       <Resume name={name} otherPersonalDetails={otherPersonalDetails} summary={summary} showSummary={showSummary} 
       education={education} showSkills={showSkills} skills={skills} experiences={experiences} showExample={showExample} />

@@ -1,4 +1,4 @@
-const skillsObject = {skillType: '', skillName: ''}
+import {skillsObject} from '../../App'
 
 function SkillsInfo({setSkills, index}) {
     function addSkill() {
