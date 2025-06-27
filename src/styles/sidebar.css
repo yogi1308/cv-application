@@ -196,10 +196,6 @@ div.resume-education-info {
     margin-bottom: 0rem;
 }
 
-#gpa {
-    min-width: 5.5rem;
-}
-
 .other-school-info > .more-info > #editor {
     transform: translateY(-1.3rem);
 }
@@ -300,7 +296,6 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
     gap: 0.5rem;
 }
 .custom-select {
-  min-width: 350px;
   position: relative;
 }
 
@@ -350,3 +345,23 @@ input.other.hide-input {display: none}
 button {cursor: pointer;}
 
 .print-example-buttons {align-items: stretch;}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        max-width: 30.25vw;
+    }
+    .close-sidebar-icon {left: 30.25vw}
+    .close-sidebar-icon.rotated-icon {
+        transform: translateX(-30.7vw);
+    }
+    .close-sidebar-icon.rotated-icon:hover {
+        transform: translateX(-30.75vw) scale(1.2);
+    }
+    .generic-info-container > div > div.expereice-name-header > div.header-and-icons > div > div.hide > svg {
+        min-width: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    
+}

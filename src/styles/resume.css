@@ -14,7 +14,7 @@
 }
 
 .resume {
-    aspect-ratio: 1/1.1414;
+  aspect-ratio: 1/1.1414;
   min-width: 700px;
   max-width: 100px;
   border: 1px solid var(--secondary-color);
@@ -112,4 +112,11 @@
   .resume > * {
     page-break-inside: avoid;
   }
+}
+
+@media (max-width: 1024px) {
+    .resume-wrapper {
+      left: 29.25vw
+    }
+    .resume-wrapper.shift {transform: translateX(-15.5vw);}
 }
