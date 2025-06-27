@@ -18,15 +18,12 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
         setExperience(prev => [
             ...prev.slice(0, index + 1), newEntry, ...prev.slice(index + 1)
         ])
-        console.log(experiences)
     }
     function deleteExperience() {
         setExperience(prev => {
             if (prev.length === 1) {return [{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [{id: crypto.randomUUID(), ...emptyExperienceSubsection}]}]}
             else {return [...prev.slice(0, index), ...prev.slice(index + 1)]}
         })
-        console.log(experiences)
-        console.log(index)
     }
     function handleFieldChange(property, e) {
         if (property === 'hide') {
