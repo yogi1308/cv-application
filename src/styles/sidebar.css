@@ -182,7 +182,7 @@ input:focus, #editor:focus, select:focus, select:hover {
     color: rgb(0, 102, 255);
 }
 
-.education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience, .experience-other-more-info-container {
+.custom-select-and-input, .education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience, .experience-other-more-info-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -342,3 +342,5 @@ div.school-name-header, div.company-name-header, .project-name-header, .activity
 #root > div.sidebar > form > div > div.education-info-container > div.other-school-info:not(:nth-last-child(1)) {
     border-bottom: 1px dashed var(--secondary-color);
 }
+
+input.other.hide-input {display: none}

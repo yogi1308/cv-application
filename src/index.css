@@ -76,6 +76,7 @@ html {
 html {
   background: var(--background-color);
   color: var(--primary-text-color);
+  word-spacing: 0.1rem;
 }
 
 svg {

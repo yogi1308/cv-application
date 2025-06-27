@@ -29,17 +29,30 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
         console.log(index)
     }
     function handleFieldChange(property, e) {
-        // if (property === 'hide') {
-        //     setExperience(prev => 
-        //         prev.map((experience, idx) =>
-        //             idx === index ? { ...experience, [property]: !experience[property] } : experience
-        //         )
-        //     )
-        //     return
-        // }
+        if (property === 'hide') {
+            setExperience(prev => 
+                prev.map((sec, idx) =>
+                    idx === index? {...sec,[property]: !sec[property]}: sec
+                )
+            )
+            return
+        }
+        if (e.target.value === 'Other') {
+            e.currentTarget.closest('.custom-select-and-input').querySelector('input.other').classList.remove('hide-input')
+        }
+        if (property === 'experienceTitle' && e.target.value !== 'Other') {
+            e.currentTarget.closest('.custom-select-and-input').querySelector('input.other').classList.add('hide-input')
+        }
+        if (property === 'experienceTitleOtherInput') {
+            setExperience(prev => 
+                prev.map((sec, idx) =>
+                    idx === index? {...sec, experienceTitle: e.target.value}: sec
+                )
+            )
+        }
         setExperience(prev => 
-            prev.map((experience, idx) =>
-                idx === index ? { ...experience, [property]: e.target.value } : experience
+            prev.map((sec, idx) =>
+                idx === index? {...sec,[property]: e.target.value}: sec
             )
         )
     }
@@ -51,25 +64,28 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
                     <div className="add-or-delete" style={{paddingRight: '0.25rem'}}>
                         <div className="add-icon" onClick={() => addExperience()} style={{ fontSize: '1.75rem' }} title="Add a new Experience Section" >+</div>
                         <div className="delete-icon" onClick={() => deleteExperience()} title="Delete this Experience Section" >⨂</div>
-                        <div className="hide" > <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d={eyeOpenPath}/></svg></div>
+                        <div className="hide" onClick={(e) => {handleFieldChange('hide', e)}} > <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d={eyeOpenPath}/></svg></div>
                         <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.expereice-name-header').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                 </div>
-                <div className="custom-select">
-                    <select name="experience" id="experience" onChange={(e) => handleFieldChange('experienceTitle', e)}>
-                        <option disabled >Select Your Experience</option>
-                        <option>Professional Experience</option>
-                        <option>Work Experience</option>
-                        <option>Project Experience</option>
-                        <option>Leadership Experience</option>
-                        <option>Extra-curricular Activities</option>
-                        <option>Experience</option>
-                        <option>Other</option>
-                    </select>
+                <div className="custom-select-and-input">
+                    <div className="custom-select">
+                        <select name="experience" id="experience" onChange={(e) => handleFieldChange('experienceTitle', e)}>
+                            <option disabled >Select Your Experience</option>
+                            <option>Professional Experience</option>
+                            <option>Work Experience</option>
+                            <option>Project Experience</option>
+                            <option>Leadership Experience</option>
+                            <option>Extra-curricular Activities</option>
+                            <option>Experience</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <input className='other hide-input' placeholder='Please Specify' onChange={(e) => handleFieldChange('experienceTitleOtherInput', e)} ></input>
                 </div>
             </div>
             {experienceSection.subSections.map((experienceSub, idx) => (
-                <GenericSubsection setExperience={setExperience} experiences={experiences} experienceSub={experienceSub} key={experienceSub.id} index={idx} sectionIndex={index}/>
+                <GenericSubsection setExperience={setExperience} key={experienceSub.id} index={idx} sectionIndex={index}/>
             ))}
         </div>
     )
