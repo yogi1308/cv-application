@@ -15,8 +15,7 @@ function Customize() {
         if (property === 'headingsFont') {
             document.querySelectorAll('.heading').forEach(el => {
                 el.style.fontFamily = e.target.value;
-            });    
-            console.log(e.target.value)    
+            });
             return;
         }
         if (property === 'bodyTextFont') {
