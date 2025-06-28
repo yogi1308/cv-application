@@ -11,7 +11,7 @@ function ResumeGenericExperienceSubSection({subSec}) {
     const fullTitle = [nameLoc, subSec.experienceRole].filter(Boolean).join(': ');
     const timePeriod = [subSec.experienceTimeFrom, subSec.experienceTimeTo].filter(Boolean).join(' - ')
     return (
-        <div className="resume-experience-container"> 
+        <div className="resume-experience-container body"> 
             <div className="resume-experience">
                 <p><strong>{fullTitle || "McKesson, Scottsdale, AZ:  Software Engineering Intern"}</strong></p>
                 <p>{timePeriod || "Jun 2024 – Aug 2024"}</p>

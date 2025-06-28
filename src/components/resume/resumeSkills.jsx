@@ -1,8 +1,8 @@
 function ResumeSkills({skills}) {
     return (
         <div className="resume-skills-container">
-            <p className="resume-skills resume-header"><strong>Technical Skills</strong></p>
-            <div className="resume-skills-info">
+            <p className="resume-skills resume-header heading"><strong>Technical Skills</strong></p>
+            <div className="resume-skills-info body">
                 {skills.map((skill, idx) => {
                     if (skill.skillType !== "" && skill.skillName !== "") {
                         return (

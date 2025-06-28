@@ -4,8 +4,8 @@ function ResumeEducation({education}) {
     const visibleSchools = education.filter(school => !school.hidden);
     return (
         <div className="resume-education-container">
-            <p className="resume-education resume-header"><strong>Education</strong></p>
-            <div className="resume-education-info-container">
+            <p className="resume-education resume-header heading"><strong>Education</strong></p>
+            <div className="resume-education-info-container body">
                 { visibleSchools.map(school => (
                     <div className="resume-education-info" key={school.id}>
                         <div className="resume-course-name">

@@ -51,6 +51,41 @@ h1, h2, h3, h4, h5, h6 {
   src: url('./assets/Outfit/Outfit-VariableFont_wght.ttf');
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/Roboto//Roboto-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/moreFonts/Arimo/Arimo-Italic-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Arial';
+  src: url('./assets/moreFonts/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Garamond';
+  src: url('./assets/moreFonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('./assets/moreFonts/Tinos/Tinos-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('./assets/moreFonts/Merriweather/Merriweather-VariableFont_opsz\,wdth\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Calibri';
+  src: url('./assets/moreFonts/Inter/Inter-VariableFont_opsz\,wght.ttf');
+}
+
 html {
   font-family: 'Outfit', Arial, Helvetica, sans-serif;
   --background-color: white;

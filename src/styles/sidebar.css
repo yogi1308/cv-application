@@ -182,7 +182,7 @@ input:focus, #editor:focus, select:focus, select:hover {
     color: rgb(0, 102, 255);
 }
 
-.generic-info-container, .custom-select-and-input, .education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience, .experience-other-more-info-container {
+.customize-container, .generic-info-container, .custom-select-and-input, .education-name, .education-info-container, .other-school-info, .other-company-info, .experience-info-container, .other-project-info, .other-activity-info, .more-experience-info-section, .generic-experience, .experience-other-more-info-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -345,6 +345,14 @@ input.other.hide-input {display: none}
 button {cursor: pointer;}
 
 .print-example-buttons {align-items: stretch;}
+
+.font-selector, .font-size-input, .font-spacing-input, .font-size-input {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+}
+
+.font-selector > div, .font-spacing-input > div, .font-size-input > div  {width: 100%;}
 
 @media (max-width: 1024px) {
     .sidebar {

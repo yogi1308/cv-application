@@ -3,9 +3,9 @@ function ResumeSummary({ summary }) {
   return (
     <div className="resume-summary-container">
       <p className="resume-summary resume-header">
-        <strong>Summary</strong>
+        <strong className="heading">Summary</strong>
       </p>
-      <div className="resume-summary-info">
+      <div className="resume-summary-info body">
         <p
           dangerouslySetInnerHTML={{
             __html:
