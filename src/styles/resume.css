@@ -135,5 +135,10 @@
       font-size: 0.3rem;
     }
     #root > div.resume-wrapper > div > div.resume-personal-info > h1 {font-size: 0.5rem;}
-    .resume-wrapper.shift {transform: translateY(-100vh);}
+    .resume-wrapper.shift {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+    }
 }
