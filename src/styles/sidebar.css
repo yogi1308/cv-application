@@ -363,5 +363,66 @@ button {cursor: pointer;}
 }
 
 @media (max-width: 767px) {
-    
+    #root {
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar {
+        transform-origin: top;
+        position: inherit;
+        min-width: 100vw;
+        margin-top: 0;
+    }
+    .sidebar-close {
+        transform-origin: top;
+        transform: scaleY(0);
+    }
+    .close-sidebar-icon {
+        position: fixed;
+        border: none;
+        line-height: 100%;
+        padding: 0px;
+        top: 4px;
+        left: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        font-size: 0.6rem;
+    }
+    .close-sidebar-icon.rotated-icon {
+        transform: none;
+    }
+    .close-sidebar-icon > p {
+        transition: none;
+    }
+
+    .close-sidebar-icon.rotated-icon:hover {
+        transform: none;
+    }
+
+    .close-sidebar-icon:hover {
+        transform: none;
+    }
+
+    .turn-the-icon {
+        transform: none;
+        padding: 0px;
+    }
+     .close-sidebar-icon > p {
+        color: transparent;   /* or font-size: 0; */
+        position: relative;
+    }
+
+    /* inject “up” arrow in its place */
+    .close-sidebar-icon > p::before {
+        content: "▲";
+        color: var(--primary-text-color);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* when it has .rotated-icon, switch to “down” */
+    .close-sidebar-icon.rotated-icon > p::before {
+        content: "▼";
+    }
 }
