@@ -32,4 +32,14 @@ export default function onLoadSidebarClicks() {
   document.querySelectorAll('.body').forEach(el => {
       el.style.fontSize = bodyTextFontSize + 'px';
   });
+  if (window.matchMedia) {
+    // Check if the dark-mode Media-Query matches
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        document.querySelector('html').classList.remove('light-mode')
+        document.querySelector('html').classList.add('dark-mode')
+    } else {
+        document.querySelector('html').classList.add('light-mode')
+        document.querySelector('html').classList.remove('dark-mode')
+    }
+  }
 }

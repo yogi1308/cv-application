@@ -86,7 +86,9 @@ h1, h2, h3, h4, h5, h6 {
   src: url('./assets/moreFonts/Inter/Inter-VariableFont_opsz\,wght.ttf');
 }
 
-html {
+/* [data-theme="light"] {} */
+
+html, .light-mode {
   font-family: 'Outfit', Arial, Helvetica, sans-serif;
   --background-color: white;
     --primary-color: white;
@@ -95,8 +97,9 @@ html {
     --secondary-text-color: rgb(71, 85, 105);
 }
 
+/* [data-theme="dark"] {} */
 @media (prefers-color-scheme: dark) {
-  html {
+  html, .dark-mode {
     --background-color: black;
     --primary-color: rgb(2, 6, 23);
     --secondary-color: rgb(30, 41, 59);
@@ -136,4 +139,13 @@ input[type="month"]::-webkit-calendar-picker-indicator {
 #root {
   display: flex;
   overflow-x: auto;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-text-color);
+  color: var(--background-color);
 }

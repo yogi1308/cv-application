@@ -435,3 +435,10 @@ button {cursor: pointer;}
         content: "▼";
     }
 }
+
+.toggle-theme {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.25rem;
+    max-width: min-content;
+}
