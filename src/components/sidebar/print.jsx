@@ -1,6 +1,7 @@
 function Print({setShowExample, showExample}) {
     function toggleShowExample(e) {
         e.preventDefault()
+        window.localStorage.setItem('showExample', !window.localStorage.getItem('showExample'))
         setShowExample(prev => !prev)
     }
     function print(e) {
