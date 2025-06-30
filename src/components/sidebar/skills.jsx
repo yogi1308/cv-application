@@ -1,6 +1,7 @@
 import {skillsObject} from '../../App'
 
 function SkillsInfo({setSkills, index}) {
+    const skillTypeDefault = JSON.parse(window.localStorage.getItem('skills'))
     function addSkill() {
         const newEntry = { id: Date.now(), ...skillsObject };
         setSkills(prev => [
@@ -26,11 +27,11 @@ function SkillsInfo({setSkills, index}) {
             <div className="skill-name">
                 <div>
                     <h2>Skill</h2>
-                    <input type="text" name="skills" id="skills" placeholder='Front-End'autoComplete="off" onChange={(e) => handleFieldChange('skillType', e)} />
+                    <input defaultValue={skillTypeDefault?.[index]?.skillType || ''} type="text" name="skills" id="skills" placeholder='Front-End' autoComplete="off" onChange={(e) => handleFieldChange('skillType', e)} />
                 </div>
                 <div>
                     <h2>Tools</h2>
-                    <input type="text" name="tools" id="tools" placeholder='HTML, CSS, JavaScript, React' autoComplete="off" onChange={(e) => handleFieldChange('skillName', e)} />
+                    <input defaultValue={skillTypeDefault?.[index]?.skillName || ''} type="text" name="tools" id="tools" placeholder='HTML, CSS, JavaScript, React' autoComplete="off" onChange={(e) => handleFieldChange('skillName', e)} />
                 </div>
             </div>
             <div className="add-or-delete">

@@ -29,126 +29,67 @@ const emptyExperienceSubsection = {
 const skillsObject = {skillType: '', skillName: ''}
 
 function App() {
-  // -- NAME --------------------------------------------------
-  const [name, setName] = useState(
-    () => localStorage.getItem('resume:name') || ''
-  )
-  useEffect(() => {
-    localStorage.setItem('resume:name', name)
-  }, [name])
+  const [name, setName] = useState(() => localStorage.getItem('name') || '')
+  useEffect(() => {localStorage.setItem('name', name)}, [name])
 
-  // -- OTHER PERSONAL DETAILS -------------------------------
   const [otherPersonalDetails, setOtherPersonalDetails] = useState(() => {
-    const stored = localStorage.getItem('resume:otherPersonalDetails')
+    const stored = localStorage.getItem('otherPersonalDetails')
     return stored ? JSON.parse(stored) : ['', '', '', '', '', '']
   })
-  useEffect(() => {
-    localStorage.setItem(
-      'resume:otherPersonalDetails',
-      JSON.stringify(otherPersonalDetails)
-    )
+  useEffect(() => {localStorage.setItem('otherPersonalDetails',JSON.stringify(otherPersonalDetails))
   }, [otherPersonalDetails])
 
-  // -- SUMMARY ------------------------------------------------
-  const [summary, setSummary] = useState(
-    () => localStorage.getItem('resume:summary') || ''
-  )
-  useEffect(() => {
-    localStorage.setItem('resume:summary', summary)
+  const [summary, setSummary] = useState(() => localStorage.getItem('summary') || '')
+  useEffect(() => {localStorage.setItem('summary', summary)
   }, [summary])
 
   const [showSummary, setShowSummary] = useState(() => {
-    const stored = localStorage.getItem('resume:showSummary')
+    const stored = localStorage.getItem('showSummary')
     return stored ? JSON.parse(stored) : true
   })
-  useEffect(() => {
-    localStorage.setItem('resume:showSummary', JSON.stringify(showSummary))
+  useEffect(() => {localStorage.setItem('showSummary', JSON.stringify(showSummary))
   }, [showSummary])
 
-  // -- EDUCATION ----------------------------------------------
   const [education, setEducation] = useState(() => {
-    const stored = localStorage.getItem('resume:education')
-    return stored
-      ? JSON.parse(stored)
-      : [{ id: 0, ...emptySchool }]
+    const stored = localStorage.getItem('education')
+    return stored ? JSON.parse(stored) : [{ id: 0, ...emptySchool }]
   })
-  useEffect(() => {
-    localStorage.setItem('resume:education', JSON.stringify(education))
+  useEffect(() => {localStorage.setItem('education', JSON.stringify(education))
   }, [education])
 
-  // -- SKILLS -------------------------------------------------
   const [showSkills, setShowSkills] = useState(() => {
-    const stored = localStorage.getItem('resume:showSkills')
+    const stored = localStorage.getItem('showSkills')
     return stored ? JSON.parse(stored) : true
   })
-  useEffect(() => {
-    localStorage.setItem('resume:showSkills', JSON.stringify(showSkills))
+  useEffect(() => {localStorage.setItem('showSkills', JSON.stringify(showSkills))
   }, [showSkills])
 
   const [skills, setSkills] = useState(() => {
-    const stored = localStorage.getItem('resume:skills')
-    return stored
-      ? JSON.parse(stored)
-      : [{ id: 0, ...skillsObject }]
+    const stored = localStorage.getItem('skills')
+    return stored ? JSON.parse(stored) : [{ id: 0, ...skillsObject }]
   })
-  useEffect(() => {
-    localStorage.setItem('resume:skills', JSON.stringify(skills))
+  useEffect(() => {localStorage.setItem('skills', JSON.stringify(skills))
   }, [skills])
 
-  // -- EXPERIENCES --------------------------------------------
   const [experiences, setExperience] = useState(() => {
-    const stored = localStorage.getItem('resume:experiences')
-    return stored
-      ? JSON.parse(stored)
-      : [
-          {
-            id: crypto.randomUUID(),
-            hide: false,
-            experienceTitle: '',
-            subSections: [
-              { id: crypto.randomUUID(), ...emptyExperienceSubsection },
-            ],
-          },
-        ]
+    const stored = localStorage.getItem('experiences')
+    return stored ? JSON.parse(stored) : [{id: crypto.randomUUID(), hide: false, experienceTitle: '', subSections: [{ id: crypto.randomUUID(), ...emptyExperienceSubsection }]}]
   })
-  useEffect(() => {
-    localStorage.setItem(
-      'resume:experiences',
-      JSON.stringify(experiences)
-    )
+  useEffect(() => {localStorage.setItem('experiences', JSON.stringify(experiences))
   }, [experiences])
 
-  // -- EXAMPLE TOGGLE ----------------------------------------
   const [showExample, setShowExample] = useState(() => {
-    const stored = localStorage.getItem('resume:showExample')
+    const stored = localStorage.getItem('showExample')
     return stored ? JSON.parse(stored) : false
   })
-  useEffect(() => {
-    localStorage.setItem(
-      'resume:showExample',
-      JSON.stringify(showExample)
-    )
+  useEffect(() => {localStorage.setItem('showExample',JSON.stringify(showExample))
   }, [showExample])
+
   const didInit = useRef(false)
   useEffect(() => {
     if (didInit.current) return        // skip second run
     didInit.current = true
     onLoadSidebarClicks()
-  }, [])
-
-  useEffect(() => {
-    // print one key/value per line:
-    Object.keys(window.localStorage).forEach((key) => {
-      console.log(key, window.localStorage.getItem(key))
-    })
-
-    // —or— print it all as one big object:
-    console.log(
-      Object.fromEntries(
-        Object.keys(window.localStorage)
-          .map((k) => [k, window.localStorage.getItem(k)])
-      )
-    )
   }, [])
 
   return (

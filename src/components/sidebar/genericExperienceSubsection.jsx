@@ -1,7 +1,21 @@
 import {emptyExperienceSubsection} from '../../App'
 import {eyeOpenPath, eyeClosedPath} from '../../components/sidebar'
+import {useRef, useEffect} from 'react'
 
 function GenericSubsection({setExperience, index, sectionIndex, experienceSub}) {
+    const defaultText = `
+    ● Designed a Jira Gadget (plugin) with React.js front-end and a JavaScript and Python backend that tracks open tickets
+    <br />● Formulated a Python script to display data read in from a CSV file, using graphing functions from the Plotly library
+    <br />● Programmed a Dash (Flask) app that handles POST requests and displays the user’s requested graph on the gadget
+    <br />● Improved server-gadget communication to provide a ready-to-install product for the customer, improving installation time by 25%
+    `;
+    const editorRef = useRef(null);
+    useEffect(() => {
+        const additionalInfo = experienceSub.additionalInfo;
+        if (editorRef.current) {
+            editorRef.current.innerHTML = additionalInfo || defaultText;
+        }
+    }, [defaultText, experienceSub.additionalInfo]);
     function addExperienceSubSection(e) {
         e.preventDefault();
         const newEntry = { id: crypto.randomUUID(), ...emptyExperienceSubsection };
@@ -86,22 +100,22 @@ function GenericSubsection({setExperience, index, sectionIndex, experienceSub}) 
                     <h2>Name</h2>   
                     <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.experience-name').nextElementSibling.classList.toggle('close'); e.currentTarget.closest('.more-experience-info-section').classList.toggle('reduce-gap')}} style={{ fontSize: '1.5rem' }}>▾</div>
                 </div>
-                <input type="text" name='experience-name' id='experience-name' placeholder='Company/Team/Project/Club Name' autoComplete="off" onChange={(e) => handleFieldChange('experienceName', e)}/>
+                <input defaultValue={experienceSub.experienceName} type="text" name='experience-name' id='experience-name' placeholder='Company/Team/Project/Club Name' autoComplete="off" onChange={(e) => handleFieldChange('experienceName', e)}/>
             </div>
             <div className="experience-other-more-info-container">
                 <div className="experience-location">
                     <h2>Location</h2>
-                    <input type="text" name='experience-location' id='experience-location' placeholder='Enter Location' autoComplete="off" onChange={(e) => handleFieldChange('experienceLocation', e)}/>
+                    <input defaultValue={experienceSub.experienceLocation} type="text" name='experience-location' id='experience-location' placeholder='Enter Location' autoComplete="off" onChange={(e) => handleFieldChange('experienceLocation', e)}/>
                 </div>
                 <div className="experience-role">
                     <h2>Role</h2>
-                    <input type="text" name='experience-role' id='experience-role' placeholder='Job Role or Title' autoComplete="off" onChange={(e) => handleFieldChange('experienceRole', e)}/>
+                    <input defaultValue={experienceSub.experienceRole} type="text" name='experience-role' id='experience-role' placeholder='Job Role or Title' autoComplete="off" onChange={(e) => handleFieldChange('experienceRole', e)}/>
                 </div>
                 <div className="time-period">
                     <h2>Time Period</h2>
                     <div className="from-to">
-                        <input type="text" name="club-time-from" id="club-time-from" placeholder='From' autoComplete="off" onChange={(e) => handleFieldChange('experienceTimeFrom', e)}/>
-                        <input type="text" name="club-time-to" id="club-time-to" placeholder='To' autoComplete="off" onChange={(e) => handleFieldChange('experienceTimeTo', e)}/>
+                        <input defaultValue={experienceSub.experienceTimeFrom} type="text" name="club-time-from" id="club-time-from" placeholder='From' autoComplete="off" onChange={(e) => handleFieldChange('experienceTimeFrom', e)}/>
+                        <input defaultValue={experienceSub.experienceTimeTo} type="text" name="club-time-to" id="club-time-to" placeholder='To' autoComplete="off" onChange={(e) => handleFieldChange('experienceTimeTo', e)}/>
                     </div>
                 </div>
                 <div className="more-info">
@@ -112,7 +126,7 @@ function GenericSubsection({setExperience, index, sectionIndex, experienceSub}) 
                         </p>
                         <span>Description</span> <span>⨁</span>
                     </h2>
-                    <div id="editor" contenteditable="true"
+                    <div id="editor" contenteditable="true" ref={editorRef}
                     onFocus={(e) => {if (e.target.innerHTML === "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions") {e.target.textContent = ""}; e.target.style.color = 'var(--primary-text-color)' }}
                     onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "●	Developed an iOS app in Swift that allows users to locate a parked car or any previously marked location from a map <br /> ●	Used the MVC (Model, View, Controller) Architecture and followed traditional mobile development conventions"; e.target.style.color = 'grey' }}}
                     onInput={e => {let html = e.currentTarget.innerHTML; html = html.replace(/^(?:<br\s*\/?>)+/i, ''); handleFieldChange('additionalInfo', html);}}>

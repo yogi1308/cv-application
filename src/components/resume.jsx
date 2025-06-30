@@ -17,7 +17,7 @@ function Resume({showExample, name, otherPersonalDetails, summary, showSummary, 
     return (
         <div className="resume-wrapper">
             <div className="resume">
-                {!showExample ? (
+                {!window.localStorage.getItem('showExample') || false ? (
                     <>
                         <ResumePersonalInfo name={name} otherPersonalDetails={otherPersonalDetails} />
                         {showSummary && <ResumeSummary summary={summary} />}

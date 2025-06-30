@@ -57,7 +57,7 @@ function GenericSection({experienceSection, experiences, setExperience, index}) 
                 </div>
                 <div className="custom-select-and-input">
                     <div className="custom-select">
-                        <select name="experience" id="experience" onChange={(e) => handleFieldChange('experienceTitle', e)}>
+                        <select defaultValue={experienceSection.experienceTitle} name="experience" id="experience" onChange={(e) => handleFieldChange('experienceTitle', e)}>
                             <option disabled >Select Your Experience</option>
                             <option>Professional Experience</option>
                             <option>Work Experience</option>

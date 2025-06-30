@@ -1,10 +1,24 @@
 import {emptySchool} from '../../App'
 import {eyeOpenPath, eyeClosedPath} from '../../components/sidebar'
+import { useRef, useEffect } from "react";
 
 let show = true
 let showWholeSection = true
 
 function EducationInfo({setEducation, index, education}) {
+    const defaultText =
+        `<strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning
+        <br /> Dean's List Spring 2024
+        <br /> Summa Cum Laude`
+    const editorRef = useRef(null);
+    useEffect(() => {
+        const storedEducation = window.localStorage.getItem("education");
+        const additionalInfo =
+        storedEducation && JSON.parse(storedEducation)[index]?.additionalInfo;
+        if (editorRef.current) {
+            editorRef.current.innerHTML = additionalInfo || defaultText;
+        }
+    }, [defaultText, index]);
     function addSchool() {
         const newEntry = { id: Date.now(), ...emptySchool };
         setEducation(prev => [
@@ -76,31 +90,31 @@ function EducationInfo({setEducation, index, education}) {
                         <div className="school-dropdown" onClick={(e) => {e.target.classList.toggle('rotated'); e.currentTarget.closest('.school-name').nextElementSibling.classList.toggle('close')}} style={{ fontSize: '1.5rem' }}>▾</div>
                     </div>
                 </div>
-                <input type="text" name="school" id="school" autoComplete="off" onChange={(e) => handleFieldChange('schoolName', e)} />
+                <input defaultValue={education[index].schoolName} type="text" name="school" id="school" autoComplete="off" onChange={(e) => handleFieldChange('schoolName', e)} />
             </div>
             <div className="other-school-info">
                 <div className="location">
                     <h2>Location</h2>
-                    <input type="text" name="location" id="location"autoComplete="off" onChange={(e) => handleFieldChange('schoolLocation', e)} />
+                    <input defaultValue={education[index].schoolLocation} type="text" name="location" id="location"autoComplete="off" onChange={(e) => handleFieldChange('schoolLocation', e)} />
                 </div>
                 <div className="graduation-and-gpa">
                     <div className="gpa">
                         <h2>Grades</h2>
-                        <input type="text" name="gpa" id="gpa" autoComplete="off" placeholder="3.82 GPA" onChange={(e) => handleFieldChange('gpa', e)}/>
+                        <input defaultValue={education[index].gpa} type="text" name="gpa" id="gpa" autoComplete="off" placeholder="3.82 GPA" onChange={(e) => handleFieldChange('gpa', e)}/>
                     </div>
                     <div className="graduation">
                         <h2>Graduation</h2>
-                        <input type="month" name="graduation" id="graduation" autoComplete="off" onChange={(e) => handleFieldChange('graduation', e)} />
+                        <input defaultValue={education[index].graduation} type="month" name="graduation" id="graduation" autoComplete="off" onChange={(e) => handleFieldChange('graduation', e)} />
                     </div>
                 </div>
                 <div className="major-and-degree">
                     <div className="degree">
                         <h2>Degree</h2>
-                        <input type="text" name='degree' id='degree' placeholder='Eg. B.S.' autoComplete="off" onChange={(e) => handleFieldChange('degree', e)}/>
+                        <input defaultValue={education[index].degree} type="text" name='degree' id='degree' placeholder='Eg. B.S.' autoComplete="off" onChange={(e) => handleFieldChange('degree', e)}/>
                     </div>
                     <div className="major">
                         <h2>Major</h2>
-                        <input type="text" name='major' id='major' placeholder='Eg. Computer Science' autoComplete="off" onChange={(e) => handleFieldChange('major', e)}/>
+                        <input defaultValue={education[index].major} type="text" name='major' id='major' placeholder='Eg. Computer Science' autoComplete="off" onChange={(e) => handleFieldChange('major', e)}/>
                     </div>
                 </div>
                 <div className="more-info">
@@ -112,13 +126,10 @@ function EducationInfo({setEducation, index, education}) {
                         <span>Additional Information</span> <span className="pop-up" >⨁</span>
                     </h2>
                     <span className="hide" style={{ float: 'right' }} onClick={(e) => {handleFieldChange('showAdditionalInfo', e)}}> <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"><path d={show ? eyeOpenPath : eyeClosedPath} /></svg></span>
-                    <div id="editor" contenteditable="true" 
+                    <div id="editor" contenteditable="true" ref={editorRef}
                     onInput={e => {let html = e.currentTarget.innerHTML; html = html.replace(/^(?:<br\s*\/?>)+/i, ''); handleFieldChange('additionalInfo', html);}}  
                     onFocus={(e) => {if (e.target.innerHTML === "<strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning<br> Dean's List Spring 2024<br> Summa Cum Laude") {e.target.textContent = ""} ; e.target.style.color = 'var(--primary-text-color)' }} 
                     onBlur={(e) => {if (e.target.textContent.trim() === '') {e.target.innerHTML = "<strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning<br> Dean's List Spring 2024<br> Summa Cum Laude"; e.target.style.color = 'grey' }}}>
-                        <strong>Relevant Coursework:</strong>  Data Structures and Algorithms, Computer Vision, Foundations of Machine Learning
-                        <br /> Dean's List Spring 2024
-                        <br /> Summa Cum Laude
                     </div>
                 </div>
             </div>
