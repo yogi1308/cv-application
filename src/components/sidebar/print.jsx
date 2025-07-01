@@ -27,7 +27,13 @@ function Print({setShowExample, showExample}) {
     return (
         <div className="print-example-buttons">
             <button onClick={(e) => print(e)}>Print</button>
-            <button className="toggle-theme" onClick={(e) => {toggleMode(e)}} >{document.querySelector('html').classList.contains('dark-mode') ? "🌙" : "🔆"}</button>
+            <button className="toggle-theme" onClick={(e) => {toggleMode(e)}} >{
+                window.localStorage.getItem('theme') === 'light' ? "🌙"
+                : window.localStorage.getItem('theme') === 'dark' ? "🔆"
+                : window.matchMedia('(prefers-color-scheme: dark)').matches ? "🔆"
+                : window.matchMedia('(prefers-color-scheme: light)').matches ? "🌙"
+                : ""
+            }</button>
             <button onClick={(e) => toggleShowExample(e)}>{!showExample ? "Show Example Version" : "Close Example Version"}</button>
         </div>
         
