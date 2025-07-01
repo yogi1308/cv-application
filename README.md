@@ -1,3 +1,7 @@
+If the github pages deployment is not working try using the netlify deployment - https://sunny-fudge-81c254.netlify.app
+
+Ideally they both should work if not then I failed 😭😭😭😭😭
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
