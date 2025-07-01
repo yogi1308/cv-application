@@ -434,9 +434,11 @@ button {cursor: pointer;}
     .close-sidebar-icon.rotated-icon > p::before {
         content: "▼";
     }
+    .toggle-theme {font-size: 0.7rem; top: 0%;}
 }
 
 .toggle-theme {
+    padding: 2px;
     position: fixed;
     top: 0.5rem;
     right: 0.25rem;
